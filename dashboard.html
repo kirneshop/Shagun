@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Shagun | शगुन</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ============================================
+       DASHBOARD — Page-Specific Styles
+       ============================================ */
+
+    body {
+      background: #F5F0E8;
+      overflow-x: hidden;
+    }
+
+    /* ---------- Dashboard Layout ---------- */
+    .dashboard {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ---------- Sidebar ---------- */
+    .sidebar {
+      width: 260px;
+      background: linear-gradient(180deg, #2D1F2D 0%, #1A0F1A 100%);
+      color: rgba(255,255,255,0.8);
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar-header {
+      padding: 1.75rem 1.5rem 1.25rem;
+      border-bottom: 1px solid rgba(212,168,83,0.15);
+    }
+
+    .sidebar-logo {
+      font-family: var(--font-script);
+      font-size: 2rem;
+      color: var(--color-gold);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .sidebar-tagline {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .sidebar-nav {
+      flex: 1;
+      padding: 1.25rem 0;
+    }
+
+    .sidebar-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.8rem 1.5rem;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border-left: 3px solid transparent;
+    }
+
+    .sidebar-nav-item:hover {
+      color: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .sidebar-nav-item.active {
+      color: var(--color-gold);
+      background: rgba(212,168,83,0.08);
+      border-left-color: var(--color-gold);
+    }
+
+    .sidebar-nav-item .nav-icon {
+      font-size: 1.1rem;
+      width: 24px;
+      text-align: center;
+    }
+
+    .sidebar-nav-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      margin: 0.75rem 1.5rem;
+    }
+
+    .sidebar-footer {
+      padding: 1.25rem 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .sidebar-couple {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .sidebar-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--gradient-primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .sidebar-couple-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .sidebar-couple-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: white;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sidebar-couple-link {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* Mobile sidebar toggle */
+    .sidebar-toggle {
+      display: none;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 200;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: var(--color-primary);
+      color: white;
+      font-size: 1.3rem;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      border: none;
+    }
+
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 90;
+    }
+
+    /* ---------- Main Content ---------- */
+    .main-content {
+      flex: 1;
+      margin-left: 260px;
+      min-height: 100vh;
+    }
+
+    /* ---------- Top Bar ---------- */
+    .topbar {
+      background: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(212,168,83,0.12);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .topbar-welcome {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .topbar-welcome h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-text);
+      font-family: var(--font-body);
+    }
+
+    .topbar-welcome p {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-top: 0.1rem;
+    }
+
+    .topbar-welcome .countdown-inline {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .topbar-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--color-cream);
+      color: var(--color-text-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      position: relative;
+    }
+
+    .topbar-btn:hover {
+      background: rgba(212,168,83,0.15);
+      color: var(--color-primary);
+    }
+
+    .topbar-btn .notif-dot {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 8px;
+      height: 8px;
+      background: #E53E3E;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+
+    .topbar-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gradient-primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .topbar-avatar:hover {
+      box-shadow: 0 0 0 3px rgba(139,26,43,0.2);
+    }
+
+    /* ---------- Dashboard Content ---------- */
+    .dash-content {
+      padding: 1.75rem 2rem 3rem;
+      max-width: 1200px;
+    }
+
+    /* ---------- Overview Cards ---------- */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .overview-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(212,168,83,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .overview-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-gold);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .overview-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .overview-card:hover::before {
+      opacity: 1;
+    }
+
+    .overview-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .overview-card-icon.icon-green {
+      background: rgba(76,175,80,0.1);
+    }
+
+    .overview-card-icon.icon-blue {
+      background: rgba(33,150,243,0.1);
+    }
+
+    .overview-card-icon.icon-purple {
+      background: rgba(156,39,176,0.1);
+    }
+
+    .overview-card-icon.icon-gold {
+      background: rgba(212,168,83,0.12);
+    }
+
+    .overview-card-value {
+      font-size: 1.75rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      color: var(--color-text);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .overview-card-label {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      font-weight: 500;
+    }
+
+    .overview-card-trend {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin-top: 0.6rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--radius-full);
+    }
+
+    .trend-up {
+      color: #2E7D32;
+      background: rgba(76,175,80,0.1);
+    }
+
+    .trend-neutral {
+      color: var(--color-text-muted);
+      background: rgba(0,0,0,0.04);
+    }
+
+    /* ---------- Dashboard Grid (2 columns) ---------- */
+    .dash-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .dash-grid-full {
+      grid-column: 1 / -1;
+    }
+
+    /* ---------- Dashboard Sections ---------- */
+    .dash-section {
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(212,168,83,0.08);
+      overflow: hidden;
+    }
+
+    .dash-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid rgba(212,168,83,0.1);
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .dash-section-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      font-family: var(--font-body);
+      color: var(--color-text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .dash-section-action {
+      font-size: 0.8rem;
+      color: var(--color-primary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      background: none;
+      border: none;
+      font-family: var(--font-body);
+    }
+
+    .dash-section-action:hover {
+      color: var(--color-gold-dark);
+    }
+
+    .dash-section-body {
+      padding: 1.25rem 1.5rem;
+    }
+
+    /* ---------- Goals Management ---------- */
+    .goal-item {
+      padding: 1.15rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      transition: background 0.2s ease;
+    }
+
+    .goal-item:last-child {
+      border-bottom: none;
+    }
+
+    .goal-item-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .goal-info {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .goal-emoji {
+      font-size: 1.3rem;
+    }
+
+    .goal-name {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--color-text);
+    }
+
+    .goal-amounts {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+    }
+
+    .goal-amounts strong {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    .goal-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .goal-btn {
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(0,0,0,0.1);
+      background: white;
+      color: var(--color-text-light);
+      font-family: var(--font-body);
+    }
+
+    .goal-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    /* Toggle switch */
+    .toggle-switch {
+      width: 38px;
+      height: 20px;
+      background: #ccc;
+      border-radius: 10px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .toggle-switch.active {
+      background: var(--color-success);
+    }
+
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: white;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .toggle-switch.active::after {
+      transform: translateX(18px);
+    }
+
+    .goal-progress-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .goal-progress-bar {
+      flex: 1;
+      height: 8px;
+      background: rgba(212,168,83,0.12);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+
+    .goal-progress-fill {
+      height: 100%;
+      border-radius: var(--radius-full);
+      background: var(--gradient-gold);
+      transition: width 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .goal-progress-pct {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--color-gold-dark);
+      min-width: 36px;
+      text-align: right;
+    }
+
+    /* Expandable contributors */
+    .goal-expand-btn {
+      background: none;
+      border: none;
+      color: var(--color-text-muted);
+      font-size: 0.75rem;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      margin-top: 0.3rem;
+      font-family: var(--font-body);
+      transition: color 0.2s ease;
+    }
+
+    .goal-expand-btn:hover {
+      color: var(--color-primary);
+    }
+
+    .goal-contributors {
+      display: none;
+      margin-top: 0.5rem;
+      padding: 0.75rem 1rem;
+      background: var(--color-cream);
+      border-radius: var(--radius-md);
+    }
+
+    .goal-contributors.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .goal-contributor {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.4rem 0;
+      font-size: 0.8rem;
+    }
+
+    .goal-contributor:not(:last-child) {
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .goal-contributor-name {
+      color: var(--color-text);
+      font-weight: 500;
+    }
+
+    .goal-contributor-amount {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    .add-goal-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 0.85rem;
+      margin-top: 0.75rem;
+      border: 2px dashed rgba(212,168,83,0.3);
+      border-radius: var(--radius-md);
+      background: transparent;
+      color: var(--color-gold-dark);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: var(--font-body);
+    }
+
+    .add-goal-btn:hover {
+      background: rgba(212,168,83,0.06);
+      border-color: var(--color-gold);
+    }
+
+    /* ---------- Contributions Table ---------- */
+    .contrib-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .contrib-table th {
+      text-align: left;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-text-muted);
+      padding: 0.75rem 0.6rem;
+      border-bottom: 2px solid rgba(212,168,83,0.15);
+    }
+
+    .contrib-table td {
+      padding: 0.75rem 0.6rem;
+      font-size: 0.85rem;
+      vertical-align: middle;
+    }
+
+    .contrib-table tr:nth-child(even) {
+      background: rgba(255,248,240,0.5);
+    }
+
+    .contrib-table tr {
+      transition: background 0.15s ease;
+    }
+
+    .contrib-table tbody tr:hover {
+      background: rgba(212,168,83,0.06);
+    }
+
+    .contrib-name {
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    .contrib-amount {
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .contrib-goal-tag {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-full);
+      background: rgba(212,168,83,0.1);
+      color: var(--color-gold-dark);
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .contrib-message {
+      color: var(--color-text-light);
+      font-style: italic;
+      font-size: 0.82rem;
+      max-width: 180px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .contrib-date {
+      color: var(--color-text-muted);
+      font-size: 0.78rem;
+    }
+
+    /* ---------- Share Section ---------- */
+    .share-link-box {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--color-cream);
+      border: 1px solid rgba(212,168,83,0.2);
+      border-radius: var(--radius-md);
+      padding: 0.6rem 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .share-link-box .link-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .share-link-box input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--color-text);
+      outline: none;
+      min-width: 0;
+    }
+
+    .share-link-box .copy-btn {
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius-sm);
+      background: var(--color-primary);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      font-family: var(--font-body);
+    }
+
+    .share-link-box .copy-btn:hover {
+      background: var(--color-primary-dark);
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      font-family: var(--font-body);
+    }
+
+    .share-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .share-btn.whatsapp {
+      background: #25D366;
+      color: white;
+    }
+
+    .share-btn.instagram {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: white;
+    }
+
+    .share-btn.email {
+      background: #4A90D9;
+      color: white;
+    }
+
+    .share-btn.twitter {
+      background: #1DA1F2;
+      color: white;
+    }
+
+    .qr-placeholder {
+      width: 120px;
+      height: 120px;
+      background: white;
+      border: 2px solid rgba(212,168,83,0.2);
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .qr-placeholder .qr-icon {
+      font-size: 2.5rem;
+    }
+
+    .qr-placeholder span {
+      font-size: 0.65rem;
+      color: var(--color-text-muted);
+      font-weight: 500;
+    }
+
+    .share-stat {
+      font-size: 0.82rem;
+      color: var(--color-text-light);
+    }
+
+    .share-stat strong {
+      color: var(--color-primary);
+    }
+
+    /* ---------- Quick Actions ---------- */
+    .quick-actions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .quick-action {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      background: var(--color-cream);
+      border: 1px solid rgba(212,168,83,0.08);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .quick-action:hover {
+      background: rgba(212,168,83,0.1);
+      border-color: rgba(212,168,83,0.25);
+      transform: translateY(-1px);
+    }
+
+    .quick-action-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-md);
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quick-action-text {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    .quick-action-desc {
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      margin-top: 0.1rem;
+    }
+
+    /* ---------- Analytics Chart ---------- */
+    .chart-container {
+      padding: 0.5rem 0;
+    }
+
+    .chart-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.5rem;
+      height: 140px;
+      padding: 0 0.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .chart-bar-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      height: 100%;
+      justify-content: flex-end;
+    }
+
+    .chart-bar-value {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+
+    .chart-bar {
+      width: 100%;
+      max-width: 42px;
+      border-radius: 6px 6px 2px 2px;
+      background: var(--gradient-gold);
+      transition: height 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      cursor: pointer;
+      min-height: 4px;
+    }
+
+    .chart-bar:hover {
+      filter: brightness(1.08);
+    }
+
+    .chart-bar-label {
+      font-size: 0.68rem;
+      color: var(--color-text-muted);
+      font-weight: 500;
+    }
+
+    .chart-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(0,0,0,0.05);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .chart-summary-text {
+      font-size: 0.82rem;
+      color: var(--color-text-light);
+    }
+
+    .chart-summary-text strong {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    .chart-summary-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: var(--radius-full);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #2E7D32;
+      background: rgba(76,175,80,0.1);
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1024px) {
+      .overview-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .dash-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-actions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+
+      .sidebar.open {
+        transform: translateX(0);
+      }
+
+      .sidebar-toggle {
+        display: flex;
+      }
+
+      .sidebar-overlay.show {
+        display: block;
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
+
+      .topbar {
+        padding: 0.75rem 1rem;
+        padding-left: 3.5rem;
+      }
+
+      .topbar-welcome h1 {
+        font-size: 1rem;
+      }
+
+      .dash-content {
+        padding: 1.25rem 1rem 2rem;
+      }
+
+      .overview-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+      }
+
+      .overview-card {
+        padding: 1rem;
+      }
+
+      .overview-card-value {
+        font-size: 1.35rem;
+      }
+
+      .contrib-table th:nth-child(4),
+      .contrib-table td:nth-child(4) {
+        display: none;
+      }
+
+      .chart-bars {
+        height: 110px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .overview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .overview-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .overview-card-icon {
+        margin-bottom: 0;
+        flex-shrink: 0;
+      }
+
+      .share-buttons {
+        flex-direction: column;
+      }
+
+      .share-btn {
+        justify-content: center;
+      }
+
+      .contrib-table th:nth-child(3),
+      .contrib-table td:nth-child(3) {
+        display: none;
+      }
+
+      .quick-actions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---------- Stagger entrance animation ---------- */
+    .dash-enter {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: dashFadeIn 0.5s ease forwards;
+    }
+
+    .dash-enter:nth-child(1) { animation-delay: 0s; }
+    .dash-enter:nth-child(2) { animation-delay: 0.08s; }
+    .dash-enter:nth-child(3) { animation-delay: 0.16s; }
+    .dash-enter:nth-child(4) { animation-delay: 0.24s; }
+
+    @keyframes dashFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== Mobile Sidebar Toggle ===== -->
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle menu">☰</button>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ===== Sidebar ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <span class="sidebar-logo">Shagun</span>
+      <span class="sidebar-tagline">शगुन — Wedding Dashboard</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#overview" class="sidebar-nav-item active">
+        <span class="nav-icon">📊</span> Overview
+      </a>
+      <a href="#goals" class="sidebar-nav-item">
+        <span class="nav-icon">🎯</span> Goals
+      </a>
+      <a href="#contributors" class="sidebar-nav-item">
+        <span class="nav-icon">👥</span> Contributors
+      </a>
+      <a href="#share" class="sidebar-nav-item">
+        <span class="nav-icon">🔗</span> Share
+      </a>
+      <a href="#analytics" class="sidebar-nav-item">
+        <span class="nav-icon">📈</span> Analytics
+      </a>
+
+      <div class="sidebar-nav-divider"></div>
+
+      <a href="wedding.html" class="sidebar-nav-item">
+        <span class="nav-icon">💒</span> My Wedding Page
+      </a>
+      <a href="#settings" class="sidebar-nav-item">
+        <span class="nav-icon">⚙️</span> Settings
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-couple">
+        <div class="sidebar-avatar">P&J</div>
+        <div class="sidebar-couple-info">
+          <div class="sidebar-couple-name">Pradyut & Jigyasa</div>
+          <div class="sidebar-couple-link">shagun.in/pradyut-jigyasa</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== Main Content ===== -->
+  <div class="dashboard">
+    <main class="main-content">
+
+      <!-- ===== Top Bar ===== -->
+      <header class="topbar">
+        <div class="topbar-welcome">
+          <h1>Welcome back, Pradyut & Jigyasa! 💑</h1>
+          <p>Your wedding is in <span class="countdown-inline" id="daysLeft">62 days</span> — January 18, 2027 · Puri, Odisha</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="topbar-btn" title="Notifications">
+            🔔
+            <span class="notif-dot"></span>
+          </button>
+          <a href="wedding.html" class="topbar-btn" title="Preview Your Page">👁️</a>
+          <div class="topbar-avatar" title="Profile">P</div>
+        </div>
+      </header>
+
+      <!-- ===== Dashboard Body ===== -->
+      <div class="dash-content">
+
+        <!-- === Overview Cards === -->
+        <section id="overview" class="overview-grid">
+          <div class="overview-card dash-enter">
+            <div class="overview-card-icon icon-green">💰</div>
+            <div>
+              <div class="overview-card-value" id="dashTotalRaised" data-counter="975000" data-prefix="₹">₹9,75,000</div>
+              <div class="overview-card-label">Total Raised</div>
+              <div class="overview-card-trend trend-up">↑ 12% this week</div>
+            </div>
+          </div>
+
+          <div class="overview-card dash-enter">
+            <div class="overview-card-icon icon-blue">👥</div>
+            <div>
+              <div class="overview-card-value" id="dashTotalContributors" data-counter="23">23</div>
+              <div class="overview-card-label">Total Contributors</div>
+              <div class="overview-card-trend trend-up">↑ Real-time synced</div>
+            </div>
+          </div>
+
+          <div class="overview-card dash-enter">
+            <div class="overview-card-icon icon-purple">👁️</div>
+            <div>
+              <div class="overview-card-value" data-counter="1247">1,247</div>
+              <div class="overview-card-label">Page Views</div>
+              <div class="overview-card-trend trend-up">↑ 18% this week</div>
+            </div>
+          </div>
+
+          <div class="overview-card dash-enter">
+            <div class="overview-card-icon icon-gold">📤</div>
+            <div>
+              <div class="overview-card-value">34%</div>
+              <div class="overview-card-label">Share Rate</div>
+              <div class="overview-card-trend trend-neutral">— Steady</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- === Goals + Recent Contributions === -->
+        <div class="dash-grid">
+
+          <!-- Goals Management -->
+          <section id="goals" class="dash-section dash-grid-full">
+            <div class="dash-section-header">
+              <h2 class="dash-section-title">🎯 Goals Management</h2>
+              <span class="badge badge-gold">5 Active</span>
+            </div>
+            <div class="dash-section-body">
+
+              <!-- Goal 1 -->
+              <div class="goal-item">
+                <div class="goal-item-top">
+                  <div class="goal-info">
+                    <span class="goal-emoji">🌍</span>
+                    <div>
+                      <div class="goal-name">European Honeymoon</div>
+                      <div class="goal-amounts"><strong>₹1,85,000</strong> raised of ₹3,50,000</div>
+                    </div>
+                  </div>
+                  <div class="goal-controls">
+                    <button class="goal-btn" onclick="showToast('Edit goal coming soon!', 'info')">✏️ Edit</button>
+                    <div class="toggle-switch active" onclick="this.classList.toggle('active')" title="Active"></div>
+                  </div>
+                </div>
+                <div class="goal-progress-row">
+                  <div class="goal-progress-bar"><div class="goal-progress-fill" data-width="53"></div></div>
+                  <span class="goal-progress-pct">53%</span>
+                </div>
+                <button class="goal-expand-btn" onclick="toggleContributors(this)">▸ Show contributors (2)</button>
+                <div class="goal-contributors">
+                  <div class="goal-contributor">
+                    <span class="goal-contributor-name">Rahul Verma</span>
+                    <span class="goal-contributor-amount">₹5,000</span>
+                  </div>
+                  <div class="goal-contributor">
+                    <span class="goal-contributor-name">Priya Das</span>
+                    <span class="goal-contributor-amount">₹8,000</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Goal 2 -->
+              <div class="goal-item">
+                <div class="goal-item-top">
+                  <div class="goal-info">
+                    <span class="goal-emoji">🏠</span>
+                    <div>
+                      <div class="goal-name">Dream Home Down Payment</div>
+                      <div class="goal-amounts"><strong>₹4,20,000</strong> raised of ₹10,00,000</div>
+                    </div>
+                  </div>
+                  <div class="goal-controls">
+                    <button class="goal-btn" onclick="showToast('Edit goal coming soon!', 'info')">✏️ Edit</button>
+                    <div class="toggle-switch active" onclick="this.classList.toggle('active')" title="Active"></div>
+                  </div>
+                </div>
+                <div class="goal-progress-row">
+                  <div class="goal-progress-bar"><div class="goal-progress-fill" data-width="42"></div></div>
+                  <span class="goal-progress-pct">42%</span>
+                </div>
+                <button class="goal-expand-btn" onclick="toggleContributors(this)">▸ Show contributors (2)</button>
+                <div class="goal-contributors">
+                  <div class="goal-contributor">
+                    <span class="goal-contributor-name">Sneha Kapoor</span>
+                    <span class="goal-contributor-amount">₹10,000</span>
+                  </div>
+                  <div class="goal-contributor">
+                    <span class="goal-contributor-name">Vikram Singh</span>
+                    <span class="goal-contributor-amount">₹15,000</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Goal 3 -->
+              <div class="goal-item">
+                <div class="goal-item-top">
+                  <div class="goal-info">
+                    <span class="goal-emoji">🚗</span>
+                    <div>
+                      <div class="goal-name">First Car Together</div>
+                      <div class="goal-amounts"><strong>₹2,10,000</strong> raised of ₹6,00,000</div>
+                    </div>
+                  </div>
+                  <div class="goal-controls">
+                    <button class="goal-btn" onclick="showToast('Edit goal coming soon!', 'info')">✏️ Edit</button>
+                    <div class="toggle-switch active" onclick="this.classList.toggle('active')" title="Active"></div>
+                  </div>
+                </div>
+                <div class="goal-progress-row">
+                  <div class="goal-progress-bar"><div class="goal-progress-fill" data-width="35"></div></div>
+                  <span class="goal-progress-pct">35%</span>
+                </div>
+                <button class="goal-expand-btn" onclick="toggleContributors(this)">▸ Show contributors (1)</button>
+                <div class="goal-contributors">
+                  <div class="goal-contributor">
+                    <span class="goal-contributor-name">Amit Sharma</span>
+                    <span class="goal-contributor-amount">₹3,000</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Goal 4 -->
+              <div class="goal-item">
+                <div class="goal-item-top">
+                  <div class="goal-info">
+                    <span class="goal-emoji">📸</span>
+                    <div>
+                      <div class="goal-name">Professional Wedding Film</div>
+                      <div class="goal-amounts"><strong>₹65,000</strong> raised of ₹80,000</div>
+                    </div>
+                  </div>
+                  <div class="goal-controls">
+                    <button class="goal-btn" onclick="showToast('Edit goal coming soon!', 'info')">✏️ Edit</button>
+                    <div class="toggle-switch active" onclick="this.classList.toggle('active')" title="Active"></div>
+                  </div>
+                </div>
+                <div class="goal-progress-row">
+                  <div class="goal-progress-bar"><div class="goal-progress-fill" data-width="81"></div></div>
+                  <span class="goal-progress-pct">81%</span>
+                </div>
+                <button class="goal-expand-btn" onclick="toggleContributors(this)">▸ Show contributors (0)</button>
+                <div class="goal-contributors">
+                  <p style="font-size:0.8rem;color:var(--color-text-muted);text-align:center;padding:0.5rem 0;">No individual contributors to display for this sample.</p>
+                </div>
+              </div>
+
+              <!-- Goal 5 -->
+              <div class="goal-item">
+                <div class="goal-item-top">
+                  <div class="goal-info">
+                    <span class="goal-emoji">🍳</span>
+                    <div>
+                      <div class="goal-name">Kitchen Setup</div>
+                      <div class="goal-amounts"><strong>₹95,000</strong> raised of ₹1,50,000</div>
+                    </div>
+                  </div>
+                  <div class="goal-controls">
+                    <button class="goal-btn" onclick="showToast('Edit goal coming soon!', 'info')">✏️ Edit</button>
+                    <div class="toggle-switch active" onclick="this.classList.toggle('active')" title="Active"></div>
+                  </div>
+                </div>
+                <div class="goal-progress-row">
+                  <div class="goal-progress-bar"><div class="goal-progress-fill" data-width="63"></div></div>
+                  <span class="goal-progress-pct">63%</span>
+                </div>
+                <button class="goal-expand-btn" onclick="toggleContributors(this)">▸ Show contributors (1)</button>
+                <div class="goal-contributors">
+                  <div class="goal-contributor">
+                    <span class="goal-contributor-name">Neha Gupta</span>
+                    <span class="goal-contributor-amount">₹2,000</span>
+                  </div>
+                </div>
+              </div>
+
+              <button class="add-goal-btn" onclick="showToast('Add goal feature coming soon!', 'info')">
+                ➕ Add New Goal
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <!-- === Contributions + Share row === -->
+        <div class="dash-grid">
+
+          <!-- Recent Contributions Table -->
+          <section id="contributors" class="dash-section">
+            <div class="dash-section-header">
+              <h2 class="dash-section-title">💝 Recent Contributions</h2>
+              <button class="dash-section-action">View All →</button>
+            </div>
+            <div class="dash-section-body" style="padding: 0;">
+              <div style="overflow-x: auto;">
+                <table class="contrib-table">
+                  <thead>
+                    <tr>
+                      <th>Contributor</th>
+                      <th>Amount</th>
+                      <th>Goal</th>
+                      <th>Message</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody id="contribTableBody">
+                    <tr>
+                      <td class="contrib-name">Vikram Singh</td>
+                      <td class="contrib-amount">₹15,000</td>
+                      <td><span class="contrib-goal-tag">🏠 Home</span></td>
+                      <td class="contrib-message">Family contribution with love ❤️</td>
+                      <td class="contrib-date">Nov 16</td>
+                    </tr>
+                    <tr>
+                      <td class="contrib-name">Sneha Kapoor</td>
+                      <td class="contrib-amount">₹10,000</td>
+                      <td><span class="contrib-goal-tag">🏠 Home</span></td>
+                      <td class="contrib-message">Here's to your new beginning! 🏡</td>
+                      <td class="contrib-date">Nov 15</td>
+                    </tr>
+                    <tr>
+                      <td class="contrib-name">Priya Das</td>
+                      <td class="contrib-amount">₹8,000</td>
+                      <td><span class="contrib-goal-tag">🌍 Honeymoon</span></td>
+                      <td class="contrib-message">Make memories!</td>
+                      <td class="contrib-date">Nov 14</td>
+                    </tr>
+                    <tr>
+                      <td class="contrib-name">Rahul Verma</td>
+                      <td class="contrib-amount">₹5,000</td>
+                      <td><span class="contrib-goal-tag">🌍 Honeymoon</span></td>
+                      <td class="contrib-message">Enjoy Paris for me too! 🗼</td>
+                      <td class="contrib-date">Nov 13</td>
+                    </tr>
+                    <tr>
+                      <td class="contrib-name">Amit Sharma</td>
+                      <td class="contrib-amount">₹3,000</td>
+                      <td><span class="contrib-goal-tag">🚗 Car</span></td>
+                      <td class="contrib-message">Road trips incoming! 🚗</td>
+                      <td class="contrib-date">Nov 12</td>
+                    </tr>
+                    <tr>
+                      <td class="contrib-name">Neha Gupta</td>
+                      <td class="contrib-amount">₹2,000</td>
+                      <td><span class="contrib-goal-tag">🍳 Kitchen</span></td>
+                      <td class="contrib-message">Cook up a storm together! 🍲</td>
+                      <td class="contrib-date">Nov 11</td>
+                    </tr>
+                    <tr>
+                      <td class="contrib-name">Ravi Kumar</td>
+                      <td class="contrib-amount">₹7,500</td>
+                      <td><span class="contrib-goal-tag">📸 Film</span></td>
+                      <td class="contrib-message">Capture every moment! 🎬</td>
+                      <td class="contrib-date">Nov 10</td>
+                    </tr>
+                    <tr>
+                      <td class="contrib-name">Ananya Mishra</td>
+                      <td class="contrib-amount">₹4,000</td>
+                      <td><span class="contrib-goal-tag">🌍 Honeymoon</span></td>
+                      <td class="contrib-message">Bon voyage! ✈️</td>
+                      <td class="contrib-date">Nov 9</td>
+                    </tr>
+                    <tr>
+                      <td class="contrib-name">Deepak Patel</td>
+                      <td class="contrib-amount">₹6,000</td>
+                      <td><span class="contrib-goal-tag">🏠 Home</span></td>
+                      <td class="contrib-message">Wishing you the best! 🏡</td>
+                      <td class="contrib-date">Nov 8</td>
+                    </tr>
+                    <tr>
+                      <td class="contrib-name">Meera Joshi</td>
+                      <td class="contrib-amount">₹3,500</td>
+                      <td><span class="contrib-goal-tag">🍳 Kitchen</span></td>
+                      <td class="contrib-message">To many dinner parties! 🥂</td>
+                      <td class="contrib-date">Nov 7</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- Share + Quick Actions Column -->
+          <div style="display:flex;flex-direction:column;gap:1.5rem;">
+
+            <!-- Share Section -->
+            <section id="share" class="dash-section">
+              <div class="dash-section-header">
+                <h2 class="dash-section-title">🔗 Share Your Page</h2>
+              </div>
+              <div class="dash-section-body">
+                <div class="share-link-box">
+                  <span class="link-icon">🌐</span>
+                  <input type="text" value="shagun.in/pradyut-jigyasa" id="shareLink" readonly>
+                  <button class="copy-btn" onclick="copyLink()">Copy</button>
+                </div>
+
+                <div class="share-buttons">
+                  <button class="share-btn whatsapp" onclick="shareVia('whatsapp')">💬 WhatsApp</button>
+                  <button class="share-btn instagram" onclick="shareVia('instagram')">📷 Instagram</button>
+                  <button class="share-btn email" onclick="shareVia('email')">✉️ Email</button>
+                  <button class="share-btn twitter" onclick="shareVia('twitter')">🐦 Twitter</button>
+                </div>
+
+                <div style="display:flex;align-items:center;gap:1.25rem;">
+                  <div class="qr-placeholder">
+                    <span class="qr-icon">📱</span>
+                    <span>QR Code</span>
+                  </div>
+                  <div>
+                    <p class="share-stat" style="margin-bottom:0.3rem;">Your link has been viewed <strong>1,247</strong> times</p>
+                    <p class="share-stat">Shared <strong>82</strong> times across platforms</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="dash-section">
+              <div class="dash-section-header">
+                <h2 class="dash-section-title">⚡ Quick Actions</h2>
+              </div>
+              <div class="dash-section-body">
+                <div class="quick-actions-grid">
+                  <a class="quick-action" onclick="showToast('Edit wedding details coming soon!', 'info')">
+                    <div class="quick-action-icon">✏️</div>
+                    <div>
+                      <div class="quick-action-text">Edit Wedding Details</div>
+                      <div class="quick-action-desc">Date, venue, story</div>
+                    </div>
+                  </a>
+                  <a class="quick-action" onclick="showToast('Customize theme coming soon!', 'info')">
+                    <div class="quick-action-icon">🎨</div>
+                    <div>
+                      <div class="quick-action-text">Customize Theme</div>
+                      <div class="quick-action-desc">Colors, fonts, layout</div>
+                    </div>
+                  </a>
+                  <a class="quick-action" onclick="showToast('Report download starting...', 'success')">
+                    <div class="quick-action-icon">📥</div>
+                    <div>
+                      <div class="quick-action-text">Download Report</div>
+                      <div class="quick-action-desc">Export as CSV</div>
+                    </div>
+                  </a>
+                  <a class="quick-action" href="wedding.html">
+                    <div class="quick-action-icon">👁️</div>
+                    <div>
+                      <div class="quick-action-text">Preview Your Page</div>
+                      <div class="quick-action-desc">See what guests see</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </section>
+
+          </div>
+        </div>
+
+        <!-- === Analytics Chart === -->
+        <section id="analytics" class="dash-section" style="margin-top: 1.5rem;">
+          <div class="dash-section-header">
+            <h2 class="dash-section-title">📈 Contributions This Week</h2>
+            <span class="badge badge-success">↑ Active</span>
+          </div>
+          <div class="dash-section-body">
+            <div class="chart-container">
+              <div class="chart-bars" id="chartBars">
+                <div class="chart-bar-wrapper">
+                  <span class="chart-bar-value">₹3k</span>
+                  <div class="chart-bar" data-height="21" style="height: 0;"></div>
+                  <span class="chart-bar-label">Mon</span>
+                </div>
+                <div class="chart-bar-wrapper">
+                  <span class="chart-bar-value">₹8k</span>
+                  <div class="chart-bar" data-height="57" style="height: 0;"></div>
+                  <span class="chart-bar-label">Tue</span>
+                </div>
+                <div class="chart-bar-wrapper">
+                  <span class="chart-bar-value">₹5k</span>
+                  <div class="chart-bar" data-height="36" style="height: 0;"></div>
+                  <span class="chart-bar-label">Wed</span>
+                </div>
+                <div class="chart-bar-wrapper">
+                  <span class="chart-bar-value">₹12k</span>
+                  <div class="chart-bar" data-height="86" style="height: 0;"></div>
+                  <span class="chart-bar-label">Thu</span>
+                </div>
+                <div class="chart-bar-wrapper">
+                  <span class="chart-bar-value">₹7k</span>
+                  <div class="chart-bar" data-height="50" style="height: 0;"></div>
+                  <span class="chart-bar-label">Fri</span>
+                </div>
+                <div class="chart-bar-wrapper">
+                  <span class="chart-bar-value">₹6k</span>
+                  <div class="chart-bar" data-height="43" style="height: 0;"></div>
+                  <span class="chart-bar-label">Sat</span>
+                </div>
+                <div class="chart-bar-wrapper">
+                  <span class="chart-bar-value">₹4k</span>
+                  <div class="chart-bar" data-height="29" style="height: 0;"></div>
+                  <span class="chart-bar-label">Sun</span>
+                </div>
+              </div>
+              <div class="chart-summary">
+                <span class="chart-summary-text">This week: <strong>₹45,000</strong> from <strong>8 contributors</strong></span>
+                <span class="chart-summary-badge">↑ 22% vs last week</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div><!-- .dash-content -->
+    </main>
+  </div><!-- .dashboard -->
+
+  <!-- ===== Shared Store & Utils ===== -->
+  <script src="js/store.js"></script>
+  <script src="js/utils.js"></script>
+
+  <!-- ===== Page-Specific JS ===== -->
+  <script>
+    // --- Sidebar mobile toggle ---
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      sidebarOverlay.classList.toggle('show');
+      sidebarToggle.textContent = sidebar.classList.contains('open') ? '✕' : '☰';
+    });
+
+    sidebarOverlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('show');
+      sidebarToggle.textContent = '☰';
+    });
+
+    // --- Sidebar nav active state ---
+    document.querySelectorAll('.sidebar-nav-item[href^="#"]').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelectorAll('.sidebar-nav-item').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        // close mobile sidebar
+        sidebar.classList.remove('open');
+        sidebarOverlay.classList.remove('show');
+        sidebarToggle.textContent = '☰';
+      });
+    });
+
+    // --- Goal contributors expand/collapse ---
+    function toggleContributors(btn) {
+      const panel = btn.nextElementSibling;
+      const isOpen = panel.classList.contains('show');
+      panel.classList.toggle('show');
+      btn.textContent = isOpen
+        ? btn.textContent.replace('▾', '▸').replace('Hide', 'Show')
+        : btn.textContent.replace('▸', '▾').replace('Show', 'Hide');
+    }
+
+    // --- Copy share link ---
+    function copyLink() {
+      const input = document.getElementById('shareLink');
+      input.select();
+      navigator.clipboard.writeText(input.value).then(() => {
+        showToast('Link copied to clipboard! 🔗', 'success');
+      }).catch(() => {
+        // fallback
+        document.execCommand('copy');
+        showToast('Link copied!', 'success');
+      });
+    }
+
+    // --- Share via platform ---
+    function shareVia(platform) {
+      const url = 'https://shagun.in/pradyut-jigyasa';
+      const text = 'Pradyut & Jigyasa are getting married! 💍 Be a part of their dreams — contribute to their goals on Shagun. 🎉';
+
+      switch (platform) {
+        case 'whatsapp':
+          window.open(`https://wa.me/?text=${encodeURIComponent(text + '\n' + url)}`, '_blank');
+          break;
+        case 'instagram':
+          showToast('Link copied! Share it on your Instagram story 📸', 'success');
+          navigator.clipboard.writeText(url);
+          break;
+        case 'email':
+          window.open(`mailto:?subject=${encodeURIComponent('Be a part of Pradyut & Jigyasa\'s wedding dreams!')}&body=${encodeURIComponent(text + '\n\n' + url)}`, '_blank');
+          break;
+        case 'twitter':
+          window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+          break;
+      }
+    }
+
+    // --- Countdown calculation ---
+    function updateCountdown() {
+      const wedding = new Date('2027-01-18T00:00:00');
+      const now = new Date();
+      const diff = wedding - now;
+      const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+      const el = document.getElementById('daysLeft');
+      if (el && days > 0) {
+        el.textContent = days + ' days';
+      } else if (el) {
+        el.textContent = 'Today! 🎉';
+      }
+    }
+
+    // --- Animate progress bars on load ---
+    function animateGoalBars() {
+      document.querySelectorAll('.goal-progress-fill').forEach(bar => {
+        const width = bar.getAttribute('data-width');
+        setTimeout(() => {
+          bar.style.width = width + '%';
+        }, 400);
+      });
+    }
+
+    // --- Animate chart bars on load ---
+    function animateChart() {
+      document.querySelectorAll('.chart-bar').forEach((bar, i) => {
+        const h = bar.getAttribute('data-height');
+        setTimeout(() => {
+          bar.style.height = h + '%';
+        }, 300 + i * 100);
+      });
+    }
+
+    // --- Scroll spy for sidebar ---
+    function initScrollSpy() {
+      const sections = document.querySelectorAll('section[id]');
+      const navItems = document.querySelectorAll('.sidebar-nav-item[href^="#"]');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navItems.forEach(item => {
+              item.classList.toggle('active', item.getAttribute('href') === '#' + id);
+            });
+          }
+        });
+      }, { threshold: 0.3, rootMargin: '-80px 0px -40% 0px' });
+
+      sections.forEach(s => observer.observe(s));
+    }
+
+    // --- Sync with ShagunStore ---
+    function syncDashboardWithStore() {
+      if (!window.shagunStore) return;
+      const metrics = window.shagunStore.getMetrics();
+      const wedding = window.shagunStore.getWedding();
+
+      const raisedEl = document.getElementById('dashTotalRaised');
+      if (raisedEl) raisedEl.textContent = formatINR(metrics.totalRaised);
+
+      const contribEl = document.getElementById('dashTotalContributors');
+      if (contribEl) contribEl.textContent = metrics.contributorsCount;
+
+      // Render contributions in table
+      const tbody = document.getElementById('contribTableBody');
+      if (tbody && wedding.contributions && wedding.contributions.length > 0) {
+        tbody.innerHTML = '';
+        wedding.contributions.forEach(tx => {
+          const tr = document.createElement('tr');
+          const dateStr = new Date(tx.date).toLocaleDateString('en-IN', { month: 'short', day: 'numeric' });
+          tr.innerHTML = `
+            <td class="contrib-name">${tx.name}</td>
+            <td class="contrib-amount">${formatINR(tx.amount)}</td>
+            <td><span class="contrib-goal-tag">${tx.goalTitle}</span></td>
+            <td class="contrib-message">${tx.message}</td>
+            <td class="contrib-date">${dateStr}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+    }
+
+    // --- Initialize ---
+    document.addEventListener('DOMContentLoaded', () => {
+      syncDashboardWithStore();
+      updateCountdown();
+      animateGoalBars();
+      animateChart();
+      initScrollSpy();
+    });
+  </script>
+</body>
+</html>

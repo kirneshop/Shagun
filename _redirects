@@ -1,0 +1,4 @@
+/wedding          /wedding.html          200
+/dashboard        /dashboard.html        200
+/create           /create.html           200
+/invite/:slug     /wedding.html?id=:slug 200

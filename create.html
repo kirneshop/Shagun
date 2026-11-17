@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Your Wedding Dream Fund — Shagun (शगुन)</title>
+  <meta name="description" content="Set up your beautiful Indian wedding invitation with milestone goal funding in less than 3 minutes.">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .create-page {
+      min-height: 100vh;
+      background: linear-gradient(180deg, #FDF7EE 0%, #FFF9F2 100%);
+      padding: 5rem 1rem 4rem;
+    }
+
+    .wizard-card {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(212,168,83,0.3);
+      box-shadow: 0 16px 48px rgba(45,31,45,0.08);
+      overflow: hidden;
+    }
+
+    .wizard-header {
+      background: linear-gradient(135deg, #8B1A2B 0%, #6B0F1E 100%);
+      color: white;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .wizard-steps {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .step-indicator {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
+    }
+
+    .step-indicator.active {
+      color: var(--color-gold-light);
+      font-weight: 700;
+    }
+
+    .step-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1.5px solid currentColor;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+    }
+
+    .step-indicator.active .step-num {
+      background: var(--color-gold);
+      color: var(--color-primary-dark);
+      border-color: var(--color-gold);
+    }
+
+    .wizard-body {
+      padding: 2.5rem 2rem;
+    }
+
+    .wizard-step-content {
+      display: none;
+    }
+
+    .wizard-step-content.active {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .goal-selection-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border: 1.5px solid rgba(212,168,83,0.25);
+      border-radius: var(--radius-md);
+      margin-bottom: 0.8rem;
+      transition: all var(--transition-fast);
+      background: var(--color-warm-white);
+    }
+
+    .goal-selection-item:hover {
+      border-color: var(--color-gold);
+      background: white;
+    }
+
+    .wizard-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(212,168,83,0.2);
+    }
+
+    @media (max-width: 600px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .wizard-steps { gap: 1rem; }
+      .step-text { display: none; }
+    }
+  </style>
+</head>
+<body class="create-page">
+
+  <!-- Simple Navbar -->
+  <nav class="navbar scrolled">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+      <a href="index.html" class="navbar-logo" style="color:var(--color-primary);">Shagun</a>
+      <div style="display:flex; gap:1rem; align-items:center;">
+        <a href="wedding.html" style="font-size:0.9rem; font-weight:500;">See Example Invite</a>
+        <a href="dashboard.html" class="btn btn-sm btn-outline">Demo Dashboard</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container" style="margin-top: 2rem;">
+    <div class="wizard-card animate-fadeInUp">
+      <div class="wizard-header">
+        <span style="font-family:var(--font-script); font-size:1.6rem; color:var(--color-gold-light); display:block;">
+          ॥ शुभारंभ ॥
+        </span>
+        <h1 style="font-size:2rem; margin:0.3rem 0; color:#fff;">Create Your Wedding Dream Registry</h1>
+        <p style="font-size:0.95rem; color:rgba(255,255,255,0.85); max-width:540px; margin:0 auto;">
+          “Don't just celebrate our beginning. Be a part of our dreams.”
+        </p>
+
+        <!-- Step indicators -->
+        <div class="wizard-steps">
+          <div class="step-indicator active" id="ind-1">
+            <span class="step-num">1</span>
+            <span class="step-text">Couple & Wedding</span>
+          </div>
+          <div class="step-indicator" id="ind-2">
+            <span class="step-num">2</span>
+            <span class="step-text">Define Dreams</span>
+          </div>
+          <div class="step-indicator" id="ind-3">
+            <span class="step-num">3</span>
+            <span class="step-text">Launch & Share</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="wizard-body">
+        <!-- Step 1: Details -->
+        <div class="wizard-step-content active" id="step-1">
+          <h3 style="color:var(--color-primary); margin-bottom:1.5rem;">Step 1: The Auspicious Details</h3>
+          
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label">Groom's Name</label>
+              <input type="text" class="form-input" id="groomName" value="Pradyut Panda">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Bride's Name</label>
+              <input type="text" class="form-input" id="brideName" value="Jigyasa Sharma">
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label">Wedding Date</label>
+              <input type="date" class="form-input" id="weddingDate" value="2027-01-18">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Wedding City & State</label>
+              <input type="text" class="form-input" id="weddingVenue" value="Puri, Odisha">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Your Story / Message to Guests (Optional)</label>
+            <textarea class="form-textarea" placeholder="Share a short note about your journey together...">College sweethearts who met at NIT Rourkela. After 5 beautiful years of laughter and growth, we are taking our next big step together in Puri!</textarea>
+          </div>
+
+          <div class="wizard-footer">
+            <div></div>
+            <button class="btn btn-primary" onclick="goToStep(2)">Next: Choose Your Dreams →</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Goals -->
+        <div class="wizard-step-content" id="step-2">
+          <h3 style="color:var(--color-primary); margin-bottom:0.5rem;">Step 2: Choose Life Goals to Fund</h3>
+          <p style="color:var(--color-text-muted); font-size:0.9rem; margin-bottom:1.5rem;">
+            Select which milestones friends & family can bless you with. You can edit target amounts anytime.
+          </p>
+
+          <div class="goal-selection-item">
+            <div style="display:flex; align-items:center; gap:0.8rem;">
+              <span style="font-size:1.8rem;">🌍</span>
+              <div>
+                <strong>European Honeymoon</strong>
+                <div style="font-size:0.8rem; color:var(--color-text-muted);">Paris, Swiss Alps, Rome</div>
+              </div>
+            </div>
+            <input type="text" class="form-input" style="width:140px; text-align:right;" value="₹3,50,000">
+          </div>
+
+          <div class="goal-selection-item">
+            <div style="display:flex; align-items:center; gap:0.8rem;">
+              <span style="font-size:1.8rem;">🏠</span>
+              <div>
+                <strong>Dream Home Down Payment</strong>
+                <div style="font-size:0.8rem; color:var(--color-text-muted);">Starting our nest together</div>
+              </div>
+            </div>
+            <input type="text" class="form-input" style="width:140px; text-align:right;" value="₹10,00,000">
+          </div>
+
+          <div class="goal-selection-item">
+            <div style="display:flex; align-items:center; gap:0.8rem;">
+              <span style="font-size:1.8rem;">🚗</span>
+              <div>
+                <strong>First Car Together</strong>
+                <div style="font-size:0.8rem; color:var(--color-text-muted);">For road trips & daily life</div>
+              </div>
+            </div>
+            <input type="text" class="form-input" style="width:140px; text-align:right;" value="₹6,00,000">
+          </div>
+
+          <div class="goal-selection-item">
+            <div style="display:flex; align-items:center; gap:0.8rem;">
+              <span style="font-size:1.8rem;">📸</span>
+              <div>
+                <strong>Cinematic Wedding Film</strong>
+                <div style="font-size:0.8rem; color:var(--color-text-muted);">Reliving memories forever</div>
+              </div>
+            </div>
+            <input type="text" class="form-input" style="width:140px; text-align:right;" value="₹80,000">
+          </div>
+
+          <div class="goal-selection-item">
+            <div style="display:flex; align-items:center; gap:0.8rem;">
+              <span style="font-size:1.8rem;">🍳</span>
+              <div>
+                <strong>Kitchen & Smart Living Setup</strong>
+                <div style="font-size:0.8rem; color:var(--color-text-muted);">Appliances & cookware</div>
+              </div>
+            </div>
+            <input type="text" class="form-input" style="width:140px; text-align:right;" value="₹1,50,000">
+          </div>
+
+          <div class="wizard-footer">
+            <button class="btn btn-outline" onclick="goToStep(1)">← Back</button>
+            <button class="btn btn-primary" onclick="goToStep(3)">Next: Review & Launch →</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Launch -->
+        <div class="wizard-step-content" id="step-3">
+          <div style="text-align:center; padding:1rem 0;">
+            <span style="font-size:3.5rem;">🎉</span>
+            <h3 style="color:var(--color-primary); font-size:1.8rem; margin:0.5rem 0;">Your Shagun Page is Ready!</h3>
+            <p style="color:var(--color-text-light); max-width:520px; margin:0 auto 1.5rem;">
+              Pradyut & Jigyasa's wedding invite is set up with 5 active dream goals. You can now preview the guest invitation or manage contributions from your couple dashboard.
+            </p>
+
+            <div style="background:var(--color-warm-white); border:2px dashed var(--color-gold); border-radius:var(--radius-lg); padding:1.5rem; max-width:480px; margin:0 auto 2rem;">
+              <span style="font-size:0.85rem; color:var(--color-text-muted); display:block; margin-bottom:0.4rem;">Your Public Wedding Link:</span>
+              <strong style="font-size:1.15rem; color:var(--color-primary-dark); font-family:monospace;">
+                shagun.in/pradyut-jigyasa
+              </strong>
+            </div>
+
+            <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+              <a href="wedding.html" class="btn btn-gold btn-lg">
+                <span>View Live Invitation Page</span>
+                <span>👁️</span>
+              </a>
+              <a href="dashboard.html" class="btn btn-primary btn-lg">
+                <span>Open Couple Dashboard</span>
+                <span>📊</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/store.js"></script>
+  <script>
+    function goToStep(step) {
+      if (step === 3 && window.shagunStore) {
+        const groom = document.getElementById('groomName').value.trim() || 'Pradyut Panda';
+        const bride = document.getElementById('brideName').value.trim() || 'Jigyasa Sharma';
+        const date = document.getElementById('weddingDate').value || '2027-01-18';
+        const venue = document.getElementById('weddingVenue').value || 'Puri, Odisha';
+
+        // Save customized couple in store
+        const existing = window.shagunStore.getWedding();
+        existing.groom = groom;
+        existing.bride = bride;
+        existing.weddingDate = date;
+        existing.venue.city = venue;
+        window.shagunStore.saveWedding(existing);
+      }
+
+      document.querySelectorAll('.wizard-step-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.step-indicator').forEach(el => el.classList.remove('active'));
+
+      document.getElementById('step-' + step).classList.add('active');
+      for (let i = 1; i <= step; i++) {
+        document.getElementById('ind-' + i).classList.add('active');
+      }
+      window.scrollTo({ top: 100, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

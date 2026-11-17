@@ -1,0 +1,39 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/wedding"
+  to = "/wedding.html"
+  status = 200
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/dashboard.html"
+  status = 200
+
+[[redirects]]
+  from = "/create"
+  to = "/create.html"
+  status = 200
+
+[[redirects]]
+  from = "/invite/:slug"
+  to = "/wedding.html?id=:slug"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

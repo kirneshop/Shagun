@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pradyut & Jigyasa Wedding Invitation & Shagun Registry | Puri, Odisha</title>
+  <meta name="description" content="Join Pradyut & Jigyasa's wedding celebration on January 18, 2027 in Puri, Odisha. Don't just celebrate their beginning — be a part of their dreams!">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ==========================================================
+       WEDDING INVITATION & SHAGUN REGISTRY - INTEGRATED STYLES
+       ========================================================== */
+
+    .wedding-bg {
+      background-color: var(--color-cream);
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(212, 168, 83, 0.05) 0%, transparent 60%),
+        radial-gradient(circle at 10% 20%, rgba(139, 26, 43, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(139, 26, 43, 0.03) 0%, transparent 40%);
+    }
+
+    /* Hero Section */
+    .wedding-hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 6rem 1.5rem 4rem;
+      background: 
+        linear-gradient(180deg, rgba(74, 11, 22, 0.88) 0%, rgba(107, 15, 30, 0.94) 60%, rgba(58, 8, 17, 0.98) 100%),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><path d="M40 0 L80 40 L40 80 L0 40 Z" fill="none" stroke="%23D4A853" stroke-width="0.7" opacity="0.15"/></svg>');
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hero-border-frame {
+      position: relative;
+      max-width: 880px;
+      width: 100%;
+      border: 2px solid var(--color-gold);
+      padding: 3.5rem 2rem;
+      border-radius: 20px;
+      background: rgba(45, 10, 18, 0.65);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 0 40px rgba(212,168,83,0.15);
+      margin: 1rem auto;
+    }
+
+    .corner-motif {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border: 2px solid var(--color-gold-light);
+      pointer-events: none;
+    }
+    .corner-tl { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+    .corner-tr { top: 8px; right: 8px; border-left: none; border-bottom: none; }
+    .corner-bl { bottom: 8px; left: 8px; border-right: none; border-top: none; }
+    .corner-br { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+
+    .shubh-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--color-gold-light);
+      font-size: 1.1rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .couple-names {
+      font-family: var(--font-heading);
+      font-size: clamp(2.6rem, 7vw, 5.2rem);
+      line-height: 1.1;
+      color: #FFFFFF;
+      margin: 0.8rem 0;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    }
+
+    .couple-ampersand {
+      font-family: var(--font-script);
+      color: var(--color-gold-light);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      margin: 0 0.5rem;
+      display: inline-block;
+      vertical-align: middle;
+      filter: drop-shadow(0 2px 8px rgba(212,168,83,0.6));
+    }
+
+    .wedding-tagline {
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      color: var(--color-gold-shine);
+      font-style: italic;
+      margin: 1.2rem auto 2rem;
+      max-width: 640px;
+      line-height: 1.5;
+    }
+
+    .wedding-meta-bar {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 1.25rem 0;
+      border-top: 1px solid rgba(212,168,83,0.3);
+      border-bottom: 1px solid rgba(212,168,83,0.3);
+      margin-top: 1.5rem;
+      font-size: 1.05rem;
+      color: #fff;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .meta-icon {
+      color: var(--color-gold-light);
+      font-size: 1.3rem;
+    }
+
+    /* Countdown Ribbon */
+    .countdown-ribbon {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      margin: 2rem 0 1rem;
+      flex-wrap: wrap;
+    }
+
+    .countdown-box {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(212, 168, 83, 0.35);
+      border-radius: var(--radius-md);
+      padding: 0.8rem 1.4rem;
+      min-width: 80px;
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .countdown-val {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-gold-light);
+      line-height: 1;
+      font-family: var(--font-heading);
+    }
+
+    .countdown-lbl {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.85;
+      margin-top: 0.25rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    /* Floating Action Pill */
+    .floating-shagun-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 999;
+      background: linear-gradient(135deg, #D4A853 0%, #E8C97A 50%, #B8902F 100%);
+      color: #3b0914;
+      padding: 1rem 1.8rem;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 8px 32px rgba(212,168,83,0.5), 0 0 20px rgba(212,168,83,0.3);
+      cursor: pointer;
+      animation: pulseGold 2.5s infinite;
+      transition: all var(--transition-normal);
+      border: 2px solid #FFF3D4;
+    }
+    .floating-shagun-btn:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 12px 40px rgba(212,168,83,0.7);
+    }
+
+    /* Music Toggle Button */
+    .music-btn {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      z-index: 1001;
+      background: rgba(45,10,18,0.75);
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold-light);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      backdrop-filter: blur(8px);
+      transition: all var(--transition-normal);
+    }
+    .music-btn:hover {
+      background: var(--color-primary);
+      color: #fff;
+    }
+    .music-playing {
+      border-color: #4CAF50;
+      color: #A5D6A7;
+    }
+
+    /* Overall Dream Progress Card */
+    .dream-hero-card {
+      background: linear-gradient(135deg, #FFFFFF 0%, #FFF9F2 100%);
+      border: 2px solid rgba(212,168,83,0.4);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      margin: -3.5rem auto 4rem;
+      max-width: 960px;
+      position: relative;
+      z-index: 10;
+      box-shadow: 0 16px 40px rgba(45,31,45,0.12);
+    }
+
+    .dream-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin: 1.8rem 0;
+      text-align: center;
+    }
+
+    .dream-stat-box {
+      padding: 1rem;
+      border-right: 1px solid rgba(212,168,83,0.25);
+    }
+    .dream-stat-box:last-child {
+      border-right: none;
+    }
+
+    .dream-stat-num {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      font-family: var(--font-heading);
+    }
+
+    .dream-stat-sub {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      margin-top: 0.2rem;
+    }
+
+    /* Goal Cards */
+    .goal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .goal-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(212,168,83,0.25);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: all var(--transition-normal);
+      box-shadow: 0 4px 16px rgba(45,31,45,0.06);
+    }
+
+    .goal-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 36px rgba(212,168,83,0.2);
+      border-color: var(--color-gold);
+    }
+
+    .goal-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .goal-emoji {
+      font-size: 2.5rem;
+      line-height: 1;
+      background: var(--color-warm-white);
+      padding: 0.6rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(212,168,83,0.2);
+    }
+
+    .goal-title {
+      font-size: 1.35rem;
+      color: var(--color-primary-dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .goal-desc {
+      color: var(--color-text-light);
+      font-size: 0.92rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .goal-amounts {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.6rem;
+    }
+
+    .goal-raised {
+      font-weight: 700;
+      color: var(--color-primary);
+      font-size: 1.25rem;
+    }
+
+    .goal-target {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+    }
+
+    .goal-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px dashed rgba(212,168,83,0.25);
+    }
+
+    .contributors-pill {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Story Timeline */
+    .timeline {
+      position: relative;
+      max-width: 840px;
+      margin: 3rem auto;
+      padding: 2rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: linear-gradient(180deg, var(--color-gold-light) 0%, var(--color-primary) 50%, var(--color-gold) 100%);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 1.5rem 2.5rem;
+      box-sizing: border-box;
+    }
+
+    .timeline-item.left { left: 0; text-align: right; }
+    .timeline-item.right { left: 50%; text-align: left; }
+
+    .timeline-dot {
+      position: absolute;
+      top: 2rem;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      border: 4px solid #fff;
+      box-shadow: 0 0 0 2px var(--color-primary);
+      z-index: 2;
+    }
+    .timeline-item.left .timeline-dot { right: -11px; }
+    .timeline-item.right .timeline-dot { left: -11px; }
+
+    .timeline-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(212,168,83,0.2);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-normal);
+    }
+    .timeline-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .timeline-year {
+      font-family: var(--font-script);
+      font-size: 1.6rem;
+      color: var(--color-gold-dark);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    /* Ceremonies */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .event-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border: 1px solid rgba(212,168,83,0.25);
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition-normal);
+    }
+    .event-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-gold);
+    }
+    .event-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .event-time {
+      font-size: 0.85rem;
+      color: var(--color-gold-dark);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .event-name {
+      font-size: 1.4rem;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .event-dress {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(212,168,83,0.2);
+    }
+
+    /* Wall of Love */
+    .wall-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .blessing-card {
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      border-left: 4px solid var(--color-gold);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all var(--transition-normal);
+    }
+    .blessing-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .blessing-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .blessing-author {
+      font-weight: 600;
+      color: var(--color-text);
+      font-size: 1rem;
+    }
+
+    .blessing-amount {
+      background: rgba(212, 168, 83, 0.15);
+      color: var(--color-primary-dark);
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .blessing-message {
+      font-style: italic;
+      color: var(--color-text-light);
+      font-size: 0.93rem;
+      line-height: 1.5;
+      margin-bottom: 0.8rem;
+    }
+
+    .blessing-goal-tag {
+      font-size: 0.78rem;
+      color: var(--color-gold-dark);
+      font-weight: 500;
+    }
+
+    /* Shagun Modal specific */
+    .shagun-presets {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+      margin: 1rem 0 1.25rem;
+    }
+
+    .preset-btn {
+      padding: 0.75rem 0.5rem;
+      border: 1.5px solid rgba(212,168,83,0.4);
+      background: var(--color-warm-white);
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      color: var(--color-primary-dark);
+      cursor: pointer;
+      text-align: center;
+      transition: all var(--transition-fast);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .preset-btn .shagun-plus-one {
+      font-size: 0.7rem;
+      color: var(--color-gold-dark);
+      font-weight: normal;
+    }
+    .preset-btn.selected, .preset-btn:hover {
+      border-color: var(--color-gold);
+      background: var(--gradient-gold);
+      color: var(--color-primary-dark);
+    }
+
+    /* QR Code Display Box */
+    .qr-container {
+      background: #FFFFFF;
+      padding: 1.5rem;
+      border-radius: var(--radius-lg);
+      border: 2px dashed var(--color-gold);
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+
+    .qr-img {
+      width: 190px;
+      height: 190px;
+      margin: 0.5rem auto;
+      display: block;
+      border-radius: var(--radius-sm);
+    }
+
+    .upi-app-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin: 1rem 0;
+    }
+
+    .upi-app-btn {
+      padding: 0.6rem;
+      border: 1px solid rgba(212,168,83,0.4);
+      background: white;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      transition: all var(--transition-fast);
+    }
+    .upi-app-btn:hover {
+      background: var(--color-warm-white);
+      border-color: var(--color-gold);
+    }
+
+    .success-view {
+      display: none;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .success-icon {
+      font-size: 4rem;
+      animation: scaleIn 0.5s ease;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .timeline::before { left: 20px; }
+      .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; }
+      .timeline-item.left, .timeline-item.right { left: 0; text-align: left; }
+      .timeline-item.left .timeline-dot, .timeline-item.right .timeline-dot { left: 9px; }
+      .wedding-meta-bar { flex-direction: column; gap: 0.8rem; }
+      .dream-hero-card { margin: -2rem 1rem 3rem; padding: 1.5rem; }
+      .floating-shagun-btn { bottom: 1.25rem; right: 1.25rem; padding: 0.85rem 1.4rem; font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body class="wedding-bg">
+
+  <!-- ================= AMBIENT MUSIC TOGGLE ================= -->
+  <button class="music-btn" id="musicToggleBtn" onclick="toggleWeddingMusic()" title="Play Auspicious Shehnai & Sitar Harmony">
+    <span id="musicIcon">🎵</span>
+    <span id="musicText">Play Shehnai Harmony</span>
+  </button>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-logo">Shagun</a>
+      <div class="navbar-links">
+        <a href="#dreams">Dream Goals</a>
+        <a href="#story">Our Story</a>
+        <a href="#events">Ceremonies</a>
+        <a href="#blessings">Wall of Love</a>
+        <a href="dashboard.html" class="btn btn-sm btn-outline" style="border-color: rgba(255,255,255,0.6); color: white;">Couple Dashboard</a>
+        <button class="btn btn-sm btn-gold" onclick="openShagunModal()">Send Shagun 🎁</button>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- ================= FLOATING ACTION BUTTON ================= -->
+  <button class="floating-shagun-btn" onclick="openShagunModal()" title="Bless the couple with Shagun">
+    <span>🎁</span>
+    <span>Send Shagun</span>
+  </button>
+
+  <!-- ================= HERO SECTION ================= -->
+  <header class="wedding-hero" id="home">
+    <div class="hero-border-frame animate-fadeInUp">
+      <div class="corner-motif corner-tl"></div>
+      <div class="corner-motif corner-tr"></div>
+      <div class="corner-motif corner-bl"></div>
+      <div class="corner-motif corner-br"></div>
+
+      <div class="shubh-tag">
+        <span>॥</span>
+        <span>शुभ विवाह</span>
+        <span>॥</span>
+      </div>
+
+      <p style="font-family: var(--font-script); font-size: 2rem; color: var(--color-gold-light); margin-bottom: 0.2rem;">
+        With the blessings of our parents
+      </p>
+
+      <h1 class="couple-names" id="coupleNamesHero">
+        Pradyut <span class="couple-ampersand">&</span> Jigyasa
+      </h1>
+
+      <div class="ornament">
+        <span class="ornament-icon">🪷</span>
+      </div>
+
+      <p class="wedding-tagline" id="taglineHero">
+        “Don't just celebrate our beginning. Be a part of our dreams.”
+      </p>
+
+      <!-- Countdown -->
+      <div class="countdown-ribbon" id="countdown">
+        <div class="countdown-box">
+          <div class="countdown-val" id="days">62</div>
+          <div class="countdown-lbl">Days</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-val" id="hours">14</div>
+          <div class="countdown-lbl">Hours</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-val" id="minutes">38</div>
+          <div class="countdown-lbl">Mins</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-val" id="seconds">45</div>
+          <div class="countdown-lbl">Secs</div>
+        </div>
+      </div>
+
+      <!-- Wedding Details -->
+      <div class="wedding-meta-bar">
+        <div class="meta-item">
+          <span class="meta-icon">🗓️</span>
+          <span id="dateVenueMeta"><strong>18 January 2027</strong> • Auspicious Mahurat</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-icon">📍</span>
+          <span>Mayfair Heritage Beach Resort, <strong>Puri, Odisha</strong></span>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <button class="btn btn-gold btn-lg" onclick="openShagunModal()">
+          <span>Contribute to Our Dreams</span>
+          <span>✨</span>
+        </button>
+        <button class="btn btn-outline btn-lg" style="color: #fff; border-color: rgba(255,255,255,0.7);" onclick="openRsvpModal()">
+          <span>RSVP Attendance 💌</span>
+        </button>
+        <button class="btn btn-outline btn-lg" style="color: #fff; border-color: rgba(255,255,255,0.7);" onclick="shareInvitation()">
+          <span>Share WhatsApp 📲</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= DREAM GOALS SUMMARY CARD ================= -->
+  <div class="container">
+    <div class="dream-hero-card reveal">
+      <div style="text-align: center; max-width: 650px; margin: 0 auto;">
+        <span class="badge badge-gold">The Couple's Vision</span>
+        <h2 style="font-size: 2rem; color: var(--color-primary-dark); margin-top: 0.5rem;">
+          Our Future Journey Fund
+        </h2>
+        <p style="color: var(--color-text-light); font-size: 0.95rem; margin-top: 0.5rem;">
+          Instead of physical wedding gifts or duplicate items, we’ve shared the milestones closest to our hearts. Every contribution helps us write our next chapter together!
+        </p>
+      </div>
+
+      <div class="dream-stats-grid">
+        <div class="dream-stat-box">
+          <div class="dream-stat-num" id="totalRaisedDisplay">₹9,75,000</div>
+          <div class="dream-stat-sub">Total Shagun Received</div>
+        </div>
+        <div class="dream-stat-box">
+          <div class="dream-stat-num" id="totalTargetDisplay">₹21,80,000</div>
+          <div class="dream-stat-sub">Combined 5 Goals Target</div>
+        </div>
+        <div class="dream-stat-box">
+          <div class="dream-stat-num" id="contributorsCountDisplay">23</div>
+          <div class="dream-stat-sub">Loving Contributors</div>
+        </div>
+        <div class="dream-stat-box">
+          <div class="dream-stat-num" id="overallPercentDisplay">45%</div>
+          <div class="dream-stat-sub">Dreams Achieved</div>
+        </div>
+      </div>
+
+      <!-- Overall progress bar -->
+      <div style="margin-top: 1rem;">
+        <div class="progress-container" style="height: 14px;">
+          <div class="progress-bar" id="overallProgressBar" style="width: 45%;"></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.5rem;">
+          <span id="progressBarBottomLeft">₹9,75,000 Raised</span>
+          <span id="progressBarBottomRight" style="font-weight: 600; color: var(--color-gold-dark);">₹12,05,000 to reach 100% of all dreams</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= THE DREAMS & GOALS ================= -->
+  <section class="section" id="dreams">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Auspicious Aspirations</span>
+        <h2 class="section-title">Support What Truly Matters</h2>
+        <p class="section-subtitle">
+          Choose a goal that speaks to you, add your personalized blessing, and send your Shagun digitally with UPI & cards.
+        </p>
+      </div>
+
+      <div class="goal-grid" id="goalsContainer">
+        <!-- Rendered dynamically from ShagunStore -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= OUR STORY ================= -->
+  <section class="section" id="story" style="background: var(--color-warm-white);">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">How It All Began</span>
+        <h2 class="section-title">5 Years in the Making</h2>
+        <p class="section-subtitle">From library study sessions to forever promises.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item left reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2021 • NIT Rourkela</span>
+            <h4 style="color: var(--color-primary); margin-bottom: 0.3rem;">First Glance Across the Campus</h4>
+            <p style="font-size: 0.9rem; color: var(--color-text-light);">
+              We bumped into each other during the annual tech festival. What started as an argument over event schedules turned into a 3-hour tapri chai session.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item right reveal-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2023 • Bangalore</span>
+            <h4 style="color: var(--color-primary); margin-bottom: 0.3rem;">First Jobs & City Adventures</h4>
+            <p style="font-size: 0.9rem; color: var(--color-text-light);">
+              Moved to the tech capital. Navigating Bangalore traffic, Sunday morning runs at Cubbon Park, and learning how to cook together without burning the dal.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item left reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2025 • Puri Sea Beach</span>
+            <h4 style="color: var(--color-primary); margin-bottom: 0.3rem;">The Sunset Proposal</h4>
+            <p style="font-size: 0.9rem; color: var(--color-text-light);">
+              Under the golden Odisha sky, Pradyut went down on one knee with the Bay of Bengal waves crashing behind them. Jigyasa said yes before he could finish the sentence!
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item right reveal-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">January 2027 • Forever</span>
+            <h4 style="color: var(--color-primary); margin-bottom: 0.3rem;">The Beginning of Us</h4>
+            <p style="font-size: 0.9rem; color: var(--color-text-light);">
+              Surrounded by our dearest friends, family, and your warm blessings as we take the 7 sacred pheras together.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WEDDING EVENTS & ITINERARY ================= -->
+  <section class="section" id="events">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Celebrate With Us</span>
+        <h2 class="section-title">The Wedding Ceremonies</h2>
+        <p class="section-subtitle">Join us in Odisha for 3 days of color, music, and celebration.</p>
+      </div>
+
+      <div class="events-grid">
+        <div class="event-card reveal">
+          <div class="event-time">Jan 16 • 10:00 AM</div>
+          <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🌻</div>
+          <h3 class="event-name">Haldi & Mehendi</h3>
+          <p style="font-size: 0.9rem; color: var(--color-text-light);">
+            Turmeric glow, fragrant henna, folk singers & authentic Odia delicacies.
+          </p>
+          <div class="event-dress">Dress Code: <strong>Bright Yellow & Mustard</strong></div>
+        </div>
+
+        <div class="event-card reveal">
+          <div class="event-time">Jan 17 • 7:00 PM</div>
+          <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🪩</div>
+          <h3 class="event-name">Sangeet & Cocktail</h3>
+          <p style="font-size: 0.9rem; color: var(--color-text-light);">
+            High-energy dance face-offs, cocktails, and midnight DJ beats by the ocean.
+          </p>
+          <div class="event-dress">Dress Code: <strong>Glamorous Indo-Western</strong></div>
+        </div>
+
+        <div class="event-card reveal">
+          <div class="event-time">Jan 18 • 4:00 PM</div>
+          <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🔥</div>
+          <h3 class="event-name">The Vivah Ceremony</h3>
+          <p style="font-size: 0.9rem; color: var(--color-text-light);">
+            Baraat arrival, Jai Mala, and the sacred Vedic pheras at sunset.
+          </p>
+          <div class="event-dress">Dress Code: <strong>Royal Traditional Silks</strong></div>
+        </div>
+
+        <div class="event-card reveal">
+          <div class="event-time">Jan 19 • 7:30 PM</div>
+          <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🥂</div>
+          <h3 class="event-name">Grand Reception</h3>
+          <p style="font-size: 0.9rem; color: var(--color-text-light);">
+            A lavish banquet feast honoring the newlyweds at Mayfair Heritage.
+          </p>
+          <div class="event-dress">Dress Code: <strong>Evening Formal / Tuxedo</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WALL OF LOVE / BLESSINGS ================= -->
+  <section class="section" id="blessings" style="background: var(--color-warm-white);">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Wall of Love</span>
+        <h2 class="section-title">Blessings & Shagun Feed</h2>
+        <p class="section-subtitle">
+          See the warmth and love poured in by friends & family across the globe.
+        </p>
+      </div>
+
+      <div class="wall-grid" id="wallFeed">
+        <!-- Rendered dynamically from ShagunStore -->
+      </div>
+
+      <div class="text-center" style="margin-top: 2.5rem;">
+        <button class="btn btn-primary" onclick="openShagunModal()">
+          <span>Add Your Blessing & Shagun</span>
+          <span>✍️</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SHAGUN CONTRIBUTION MODAL ================= -->
+  <div class="modal-overlay" id="shagunModal">
+    <div class="modal" style="max-width: 520px;">
+      <div class="modal-header" style="display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <h3 style="color:var(--color-primary); font-size:1.4rem;">Send Your Shagun</h3>
+          <p style="font-size:0.85rem; color:var(--color-text-muted);">Bless the couple’s shared dreams</p>
+        </div>
+        <button onclick="closeModal('shagunModal')" style="background:none; font-size:1.5rem; color:var(--color-text-muted); cursor:pointer;">✕</button>
+      </div>
+
+      <!-- Step 1: Form View -->
+      <div class="modal-body" id="modalFormView">
+        <div class="form-group">
+          <label class="form-label">Select Goal to Support</label>
+          <select class="form-select" id="shagunGoalSelect"></select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Choose Auspicious Amount</label>
+          <div class="shagun-presets">
+            <button type="button" class="preset-btn" onclick="selectPreset(501)">
+              <span>₹501</span>
+              <span class="shagun-plus-one">+ ₹1 Shagun</span>
+            </button>
+            <button type="button" class="preset-btn selected" onclick="selectPreset(1101)">
+              <span>₹1,101</span>
+              <span class="shagun-plus-one">+ ₹1 Shagun</span>
+            </button>
+            <button type="button" class="preset-btn" onclick="selectPreset(2101)">
+              <span>₹2,101</span>
+              <span class="shagun-plus-one">+ ₹1 Shagun</span>
+            </button>
+            <button type="button" class="preset-btn" onclick="selectPreset(5101)">
+              <span>₹5,101</span>
+              <span class="shagun-plus-one">+ ₹1 Shagun</span>
+            </button>
+            <button type="button" class="preset-btn" onclick="selectPreset(11001)">
+              <span>₹11,001</span>
+              <span class="shagun-plus-one">+ ₹1 Shagun</span>
+            </button>
+            <button type="button" class="preset-btn" onclick="selectPreset(21001)">
+              <span>₹21,001</span>
+              <span class="shagun-plus-one">+ ₹1 Shagun</span>
+            </button>
+          </div>
+          <input type="number" class="form-input" id="customAmountInput" placeholder="Or enter custom amount (₹)" value="1101" oninput="updateQrCode()">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input type="text" class="form-input" id="contributorNameInput" placeholder="e.g. Rohan & Divya" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Your Relationship</label>
+          <select class="form-select" id="contributorRelationInput">
+            <option value="College Friend">College Friend (NIT Rourkela)</option>
+            <option value="School Friend">School Friend</option>
+            <option value="Colleague">Colleague / Work Mate</option>
+            <option value="Family Relative">Family Relative</option>
+            <option value="Dearest Well-Wisher">Dearest Well-Wisher</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Your Blessing / Message</label>
+          <textarea class="form-textarea" id="contributorMsgInput" placeholder="Write a warm heartfelt wish for the couple..."></textarea>
+        </div>
+
+        <!-- Live UPI QR Code Box -->
+        <div class="qr-container">
+          <span style="font-size:0.85rem; font-weight:600; color:var(--color-primary-dark); display:block;">
+            Scan & Pay with Any UPI App
+          </span>
+          <img id="upiQrCodeImg" class="qr-img" src="" alt="UPI QR Code">
+          <span style="font-size:0.78rem; color:var(--color-text-muted); display:block;">
+            UPI ID: <strong id="vpaDisplay">pradyut.panda@oksbi</strong>
+          </span>
+
+          <div class="upi-app-buttons">
+            <button type="button" class="upi-app-btn" onclick="payViaApp('gpay')">🟢 GPay</button>
+            <button type="button" class="upi-app-btn" onclick="payViaApp('phonepe')">🟣 PhonePe</button>
+            <button type="button" class="upi-app-btn" onclick="payViaApp('paytm')">🔵 Paytm</button>
+          </div>
+        </div>
+
+        <button class="btn btn-gold btn-lg" style="width: 100%; justify-content: center;" onclick="confirmShagunPayment()">
+          <span>I Have Sent My Shagun ✨</span>
+        </button>
+      </div>
+
+      <!-- Step 2: Success Celebration View -->
+      <div class="success-view" id="modalSuccessView">
+        <div class="success-icon">🪷</div>
+        <h3 style="color:var(--color-primary); font-size:1.6rem; margin-bottom: 0.5rem;">Shagun Received with Gratitude!</h3>
+        <p style="color:var(--color-text-light); font-size:0.95rem; line-height:1.5;">
+          Thank you, <strong id="successSenderName">Friend</strong>! Your auspicious contribution of <strong id="successAmount">₹1,101</strong> and your blessings have been recorded for Pradyut & Jigyasa.
+        </p>
+        <div style="background:var(--color-warm-white); border:1px dashed var(--color-gold); border-radius:var(--radius-md); padding:1rem; margin:1.5rem 0;">
+          <p style="font-size:0.85rem; color:var(--color-text-muted);">
+            Your blessing is now proudly displayed on the couple's Wall of Love.
+          </p>
+        </div>
+        <button class="btn btn-primary" onclick="closeShagunSuccess()">View on Wall of Love ✨</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= RSVP MODAL ================= -->
+  <div class="modal-overlay" id="rsvpModal">
+    <div class="modal">
+      <div class="modal-header" style="display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <h3 style="color:var(--color-primary); font-size:1.4rem;">Wedding RSVP</h3>
+          <p style="font-size:0.85rem; color:var(--color-text-muted);">Let the couple know your attendance</p>
+        </div>
+        <button onclick="closeModal('rsvpModal')" style="background:none; font-size:1.5rem; color:var(--color-text-muted); cursor:pointer;">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input type="text" class="form-input" id="rsvpName" placeholder="Full name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email or WhatsApp Number</label>
+          <input type="text" class="form-input" id="rsvpContact" placeholder="For venue updates & schedule">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Will you be attending in Puri?</label>
+          <select class="form-select" id="rsvpAttendance">
+            <option value="attending">Yes, Joyfully Attending! 🎉</option>
+            <option value="declined">Regretfully Cannot Make It (Blessing Remotely)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Number of Guests Attending</label>
+          <input type="number" class="form-input" id="rsvpGuests" value="1" min="1" max="6">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Dietary Preference</label>
+          <select class="form-select" id="rsvpMeal">
+            <option value="Vegetarian">Pure Vegetarian</option>
+            <option value="Non-Vegetarian">Non-Vegetarian (Odia coastal seafood/mutton)</option>
+            <option value="Jain">Jain Food</option>
+          </select>
+        </div>
+        <button class="btn btn-primary btn-lg" style="width:100%; justify-content:center;" onclick="submitRsvp()">
+          Confirm RSVP ✨
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="footer-logo">Shagun</div>
+      <p class="footer-tagline">
+        “Don't just celebrate their beginning. Be a part of their dreams.”
+      </p>
+
+      <div style="display:flex; justify-content:center; gap:1.5rem; margin-bottom: 2rem;">
+        <a href="index.html" style="color:var(--color-gold-light);">Platform Home</a>
+        <a href="dashboard.html" style="color:var(--color-gold-light);">Couple Dashboard</a>
+        <a href="create.html" style="color:var(--color-gold-light);">Create Your Own Wedding Page</a>
+        <a href="#dreams" style="color:var(--color-gold-light);">Dream Fund</a>
+      </div>
+
+      <div class="footer-bottom">
+        <span>Celebration of Pradyut Panda & Jigyasa Sharma • Puri, Odisha 2027</span>
+        <span>Built with ❤️ on Shagun — Hosted on Netlify</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script src="js/utils.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/upi.js"></script>
+  <script>
+    // --- Load Couple Data from ShagunStore ---
+    let currentWedding = null;
+
+    function renderWeddingPage() {
+      currentWedding = window.shagunStore.getWedding();
+      window.shagunStore.incrementView();
+
+      // Render Couple Names & Details
+      document.getElementById('coupleNamesHero').innerHTML = `
+        ${currentWedding.groom} <span class="couple-ampersand">&</span> ${currentWedding.bride}
+      `;
+      document.title = `${currentWedding.groom} & ${currentWedding.bride}'s Wedding Invitation | Shagun`;
+
+      // Render Goals
+      const goalsContainer = document.getElementById('goalsContainer');
+      const select = document.getElementById('shagunGoalSelect');
+      goalsContainer.innerHTML = '';
+      select.innerHTML = '';
+
+      currentWedding.goals.forEach(goal => {
+        const percent = Math.min(Math.round((goal.raised / goal.target) * 100), 100);
+        
+        // Goal Card
+        const card = document.createElement('div');
+        card.className = 'goal-card reveal';
+        card.innerHTML = `
+          <div>
+            <div class="goal-header">
+              <span class="goal-emoji">${goal.emoji}</span>
+              <div>
+                <h3 class="goal-title">${goal.title}</h3>
+                <span class="badge badge-primary">${goal.category || 'Milestone'}</span>
+              </div>
+            </div>
+            <p class="goal-desc">${goal.desc}</p>
+          </div>
+          <div>
+            <div class="goal-amounts">
+              <span class="goal-raised">${formatINR(goal.raised)}</span>
+              <span class="goal-target">Target: ${formatINR(goal.target)}</span>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar" style="width: ${percent}%;"></div>
+            </div>
+            <div class="goal-footer">
+              <span class="contributors-pill">👥 ${goal.contributorsCount || 0} Contributors (${percent}%)</span>
+              <button class="btn btn-sm btn-gold" onclick="openShagunModal('${goal.id}')">Contribute 🎁</button>
+            </div>
+          </div>
+        `;
+        goalsContainer.appendChild(card);
+
+        // Select Option
+        const opt = document.createElement('option');
+        opt.value = goal.id;
+        opt.textContent = `${goal.emoji} ${goal.title} (${formatINR(goal.raised)} / ${formatINR(goal.target)})`;
+        select.appendChild(opt);
+      });
+
+      // Render Wall Feed
+      renderWallFeed();
+
+      // Update Metrics
+      updateMetricsDisplay();
+
+      // Update QR Code
+      updateQrCode();
+    }
+
+    function renderWallFeed() {
+      const wallFeed = document.getElementById('wallFeed');
+      wallFeed.innerHTML = '';
+
+      const contributions = currentWedding.contributions || [];
+      contributions.forEach(tx => {
+        const card = document.createElement('div');
+        card.className = 'blessing-card reveal';
+        card.innerHTML = `
+          <div>
+            <div class="blessing-header">
+              <span class="blessing-author">${tx.name}</span>
+              <span class="blessing-amount">${formatINR(tx.amount)}</span>
+            </div>
+            <p class="blessing-message">“${tx.message}”</p>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.5rem;">
+            <span class="blessing-goal-tag">Gifted toward: ${tx.goalTitle}</span>
+            <span style="font-size:0.75rem; color:var(--color-text-muted);">${tx.relationship || 'Friend'}</span>
+          </div>
+        `;
+        wallFeed.appendChild(card);
+      });
+    }
+
+    function updateMetricsDisplay() {
+      const metrics = window.shagunStore.getMetrics();
+      document.getElementById('totalRaisedDisplay').textContent = formatINR(metrics.totalRaised);
+      document.getElementById('totalTargetDisplay').textContent = formatINR(metrics.totalTarget);
+      document.getElementById('contributorsCountDisplay').textContent = metrics.contributorsCount;
+      document.getElementById('overallPercentDisplay').textContent = metrics.percent + '%';
+      document.getElementById('overallProgressBar').style.width = metrics.percent + '%';
+      document.getElementById('progressBarBottomLeft').textContent = `${formatINR(metrics.totalRaised)} Raised`;
+      
+      const remaining = Math.max(0, metrics.totalTarget - metrics.totalRaised);
+      document.getElementById('progressBarBottomRight').textContent = `${formatINR(remaining)} to reach 100% of all dreams`;
+    }
+
+    // --- Dynamic QR Code Generator ---
+    function updateQrCode() {
+      const amount = parseInt(document.getElementById('customAmountInput').value, 10) || 1101;
+      const vpa = currentWedding?.upi?.id || 'pradyut.panda@oksbi';
+      const qrUrl = window.UpiEngine.getQrCodeUrl(amount, 'Wedding Shagun', vpa);
+      document.getElementById('upiQrCodeImg').src = qrUrl;
+      document.getElementById('vpaDisplay').textContent = vpa;
+    }
+
+    function payViaApp(appName) {
+      const amount = parseInt(document.getElementById('customAmountInput').value, 10) || 1101;
+      const vpa = currentWedding?.upi?.id || 'pradyut.panda@oksbi';
+      window.UpiEngine.openApp(appName, amount, 'Wedding Shagun', vpa);
+    }
+
+    // --- Modal Handlers ---
+    function openShagunModal(preselectedGoalId = null) {
+      if (preselectedGoalId) {
+        document.getElementById('shagunGoalSelect').value = preselectedGoalId;
+      }
+      document.getElementById('modalFormView').style.display = 'block';
+      document.getElementById('modalSuccessView').style.display = 'none';
+      updateQrCode();
+      openModal('shagunModal');
+    }
+
+    function selectPreset(amount) {
+      document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('selected'));
+      event.currentTarget.classList.add('selected');
+      document.getElementById('customAmountInput').value = amount;
+      updateQrCode();
+    }
+
+    function confirmShagunPayment() {
+      const name = document.getElementById('contributorNameInput').value.trim() || 'A Dearest Friend';
+      const amount = parseInt(document.getElementById('customAmountInput').value, 10) || 1101;
+      const goalId = document.getElementById('shagunGoalSelect').value;
+      const relation = document.getElementById('contributorRelationInput').value;
+      const message = document.getElementById('contributorMsgInput').value.trim() || 'Wishing you both eternal love, laughter, and an adventurous life together! 🎉❤️';
+
+      // Save to ShagunStore
+      window.shagunStore.addContribution(currentWedding.id, {
+        name,
+        amount,
+        goalId,
+        message,
+        relationship: relation,
+        paymentMode: 'UPI'
+      });
+
+      // Trigger Confetti
+      window.triggerConfetti();
+
+      // Show Success View
+      document.getElementById('successSenderName').textContent = name;
+      document.getElementById('successAmount').textContent = formatINR(amount);
+      document.getElementById('modalFormView').style.display = 'none';
+      document.getElementById('modalSuccessView').style.display = 'block';
+
+      // Re-render
+      renderWeddingPage();
+    }
+
+    function closeShagunSuccess() {
+      closeModal('shagunModal');
+      document.getElementById('blessings').scrollIntoView({ behavior: 'smooth' });
+      showToast('Thank you for blessing our dreams!', 'success');
+    }
+
+    // --- RSVP Logic ---
+    function openRsvpModal() {
+      openModal('rsvpModal');
+    }
+
+    function submitRsvp() {
+      const name = document.getElementById('rsvpName').value.trim();
+      if (!name) {
+        alert('Please enter your name');
+        return;
+      }
+      const contact = document.getElementById('rsvpContact').value.trim();
+      const attendance = document.getElementById('rsvpAttendance').value;
+      const guests = parseInt(document.getElementById('rsvpGuests').value, 10) || 1;
+      const meal = document.getElementById('rsvpMeal').value;
+
+      window.shagunStore.addRSVP(currentWedding.id, {
+        name,
+        email: contact,
+        attendance,
+        guests,
+        meal
+      });
+
+      closeModal('rsvpModal');
+      showToast(`Thank you ${name}! Your RSVP has been confirmed.`, 'success');
+    }
+
+    // --- Audio Toggle ---
+    function toggleWeddingMusic() {
+      const isPlaying = window.weddingAudio.toggle();
+      const btn = document.getElementById('musicToggleBtn');
+      const icon = document.getElementById('musicIcon');
+      const text = document.getElementById('musicText');
+
+      if (isPlaying) {
+        btn.classList.add('music-playing');
+        icon.textContent = '🔊';
+        text.textContent = 'Playing Shehnai (Tap to pause)';
+      } else {
+        btn.classList.remove('music-playing');
+        icon.textContent = '🎵';
+        text.textContent = 'Play Shehnai Harmony';
+      }
+    }
+
+    // --- Share Invitation ---
+    function shareInvitation() {
+      const url = window.location.href;
+      const text = `Join ${currentWedding.groom} & ${currentWedding.bride}'s Wedding Celebration in Puri, Odisha! 🪷\n“Don't just celebrate their beginning. Be a part of their dreams.”\nContribute to their Shagun Registry: ${url}`;
+      
+      const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // --- Countdown to Jan 18, 2027 ---
+    function updateCountdown() {
+      const weddingDate = new Date('2027-01-18T16:00:00+05:30').getTime();
+      const now = new Date().getTime();
+      const diff = weddingDate - now;
+
+      if (diff > 0) {
+        document.getElementById('days').textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById('hours').textContent = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById('minutes').textContent = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById('seconds').textContent = Math.floor((diff % (1000 * 60)) / 1000);
+      }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Initial render
+    document.addEventListener('DOMContentLoaded', () => {
+      renderWeddingPage();
+      const hero = document.querySelector('.wedding-hero');
+      if (hero) createFloatingElements(hero, 15);
+    });
+  </script>
+</body>
+</html>

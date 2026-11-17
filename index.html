@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shagun (शगुन) — Fund Their Dreams, Not Just Their Wedding</title>
+  <meta name="description" content="Shagun is an Indian wedding goal-funding platform. Instead of token gifts, help couples achieve real life dreams — honeymoon, home, car, and more.">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--color-primary-dark);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(212,168,83,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(212,168,83,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(165,40,66,0.3) 0%, transparent 60%),
+        linear-gradient(180deg, #5A0A18 0%, #8B1A2B 40%, #6B0F1E 100%);
+      z-index: 0;
+    }
+
+    /* Mandala ring decorations */
+    .hero-mandala {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(212,168,83,0.12);
+      pointer-events: none;
+      animation: rotateSlowly 60s linear infinite;
+    }
+    .hero-mandala::before,
+    .hero-mandala::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(212,168,83,0.08);
+    }
+    .hero-mandala::before { inset: 18px; }
+    .hero-mandala::after  { inset: 36px; }
+
+    .hero-mandala-1 { width: 500px; height: 500px; top: -180px; right: -120px; }
+    .hero-mandala-2 { width: 400px; height: 400px; bottom: -100px; left: -100px; animation-direction: reverse; animation-duration: 80s; }
+    .hero-mandala-3 { width: 250px; height: 250px; top: 25%; left: 8%; opacity: .5; animation-duration: 45s; }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      max-width: 800px;
+    }
+
+    .hero-motif {
+      font-size: 2.4rem;
+      margin-bottom: var(--space-md);
+      display: block;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .hero-brand {
+      font-family: var(--font-script);
+      font-size: clamp(3.5rem, 10vw, 6.5rem);
+      color: var(--color-gold);
+      line-height: 1.1;
+      text-shadow: 0 2px 30px rgba(212,168,83,0.35);
+      margin-bottom: var(--space-xs);
+    }
+
+    .hero-brand-hindi {
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      color: var(--color-gold-light);
+      letter-spacing: 0.5em;
+      font-weight: 300;
+      margin-bottom: var(--space-xl);
+      opacity: 0.7;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-heading);
+      font-size: clamp(1.1rem, 2.8vw, 1.55rem);
+      color: rgba(255,255,255,0.92);
+      max-width: 580px;
+      margin: 0 auto var(--space-2xl);
+      line-height: 1.6;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: var(--space-lg);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero .btn-outline {
+      border-color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.9);
+    }
+    .hero .btn-outline:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.8);
+      color: #fff;
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.8rem;
+      text-align: center;
+      animation: float 2.5s ease-in-out infinite;
+    }
+    .hero-scroll-hint span {
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Gold line separator after hero */
+    .hero-divider {
+      height: 3px;
+      background: var(--gradient-gold);
+      border: none;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .how-it-works {
+      background: var(--color-cream);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-2xl);
+      margin-top: var(--space-3xl);
+    }
+
+    .step-card {
+      text-align: center;
+      padding: var(--space-2xl) var(--space-lg);
+      position: relative;
+    }
+
+    .step-number {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-heading);
+      font-size: 4rem;
+      font-weight: 800;
+      color: rgba(212,168,83,0.08);
+      line-height: 1;
+    }
+
+    .step-icon {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-lg);
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(212,168,83,0.12) 0%, rgba(212,168,83,0.04) 100%);
+      border: 2px solid var(--color-gold-light);
+      font-size: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--color-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .step-desc {
+      color: var(--color-text-light);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* connector line between steps */
+    .step-card:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 55px;
+      right: -1.5rem;
+      width: 3rem;
+      height: 1px;
+      background: linear-gradient(90deg, var(--color-gold-light), transparent);
+    }
+
+    @media (max-width: 768px) {
+      .steps-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+      .step-card:not(:last-child)::after { display: none; }
+    }
+
+    /* ===== FEATURED COUPLE SHOWCASE ===== */
+    .showcase {
+      background: linear-gradient(180deg, var(--color-warm-white) 0%, var(--color-cream) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .showcase-mandala {
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,168,83,0.06);
+      top: -80px;
+      right: -80px;
+      animation: rotateSlowly 50s linear infinite;
+      pointer-events: none;
+    }
+
+    .showcase-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+      align-items: center;
+    }
+
+    .showcase-info {
+      max-width: 480px;
+    }
+
+    .showcase-info .section-label { text-align: left; }
+    .showcase-info .section-title {
+      text-align: left;
+      margin-bottom: var(--space-md);
+    }
+
+    .showcase-info p {
+      color: var(--color-text-light);
+      margin-bottom: var(--space-xl);
+      line-height: 1.8;
+    }
+
+    /* Wedding card preview */
+    .wedding-card-preview {
+      background: white;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-xl), 0 0 60px rgba(212,168,83,0.08);
+      overflow: hidden;
+      border: 1px solid rgba(212,168,83,0.15);
+      position: relative;
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    }
+    .wedding-card-preview:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl), 0 0 80px rgba(212,168,83,0.15);
+    }
+
+    .wcp-header {
+      background: var(--gradient-primary);
+      padding: var(--space-2xl) var(--space-xl);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wcp-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 50%, rgba(212,168,83,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 30%, rgba(212,168,83,0.08) 0%, transparent 40%);
+    }
+
+    .wcp-names {
+      font-family: var(--font-script);
+      font-size: 2.2rem;
+      color: var(--color-gold-light);
+      position: relative;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .wcp-ampersand {
+      display: inline-block;
+      margin: 0 0.4rem;
+      font-size: 1.6rem;
+      color: var(--color-gold);
+    }
+
+    .wcp-date {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+      margin-top: var(--space-sm);
+      position: relative;
+      letter-spacing: 0.1em;
+    }
+
+    .wcp-venue {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+      position: relative;
+    }
+
+    .wcp-body {
+      padding: var(--space-xl);
+    }
+
+    .wcp-goal {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid rgba(212,168,83,0.1);
+    }
+    .wcp-goal:last-child { border-bottom: none; }
+
+    .wcp-goal-emoji { font-size: 1.3rem; flex-shrink: 0; }
+
+    .wcp-goal-info { flex: 1; min-width: 0; }
+
+    .wcp-goal-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+
+    .wcp-goal-progress {
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(212,168,83,0.12);
+      overflow: hidden;
+    }
+
+    .wcp-goal-bar {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--gradient-gold);
+      transition: width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .wcp-goal-pct {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--color-gold-dark);
+      flex-shrink: 0;
+      min-width: 36px;
+      text-align: right;
+    }
+
+    .wcp-footer {
+      padding: 0 var(--space-xl) var(--space-xl);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .showcase-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+      }
+      .showcase-info { max-width: 100%; text-align: center; }
+      .showcase-info .section-label,
+      .showcase-info .section-title { text-align: center; }
+    }
+
+    /* ===== WHY SHAGUN ===== */
+    .why-section {
+      background: var(--color-cream);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-xl);
+      margin-top: var(--space-3xl);
+    }
+
+    .feature-card {
+      display: flex;
+      gap: var(--space-lg);
+      padding: var(--space-xl);
+      background: white;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(212,168,83,0.1);
+      transition: all var(--transition-normal);
+    }
+    .feature-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-gold-light);
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(139,26,43,0.08), rgba(212,168,83,0.08));
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .feature-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: var(--color-primary);
+      margin-bottom: var(--space-xs);
+    }
+
+    .feature-desc {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .features-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== STATS / SOCIAL PROOF ===== */
+    .stats-section {
+      background: var(--gradient-primary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stats-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 10% 50%, rgba(212,168,83,0.1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 50%, rgba(212,168,83,0.08) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-xl);
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: var(--space-lg);
+    }
+
+    .stat-value {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      color: var(--color-gold-light);
+      font-weight: 700;
+      margin-bottom: var(--space-xs);
+    }
+
+    .stat-label {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .stats-grid { grid-template-columns: 1fr; gap: var(--space-md); }
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials {
+      background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-warm-white) 100%);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+      margin-top: var(--space-3xl);
+    }
+
+    .testimonial-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(212,168,83,0.08);
+      position: relative;
+      transition: all var(--transition-normal);
+    }
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .testimonial-quote-mark {
+      font-family: var(--font-heading);
+      font-size: 4rem;
+      color: rgba(212,168,83,0.15);
+      line-height: 1;
+      position: absolute;
+      top: 1rem;
+      left: 1.5rem;
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      line-height: 1.8;
+      margin-bottom: var(--space-lg);
+      position: relative;
+      z-index: 1;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      background: linear-gradient(135deg, rgba(139,26,43,0.1), rgba(212,168,83,0.1));
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--color-text);
+    }
+
+    .testimonial-role {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .testimonial-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== FINAL CTA ===== */
+    .final-cta {
+      background: var(--gradient-dark);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 100%, rgba(212,168,83,0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .final-cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-cta .section-label {
+      color: var(--color-gold-light);
+    }
+
+    .final-cta .section-title {
+      color: rgba(255,255,255,0.95);
+      margin-bottom: var(--space-md);
+    }
+
+    .final-cta p {
+      color: rgba(255,255,255,0.6);
+      max-width: 500px;
+      margin: 0 auto var(--space-2xl);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* ===== NAVBAR MOBILE OPEN ===== */
+    @media (max-width: 768px) {
+      .navbar-links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255,248,240,0.98);
+        backdrop-filter: blur(10px);
+        padding: var(--space-lg);
+        gap: var(--space-md);
+        box-shadow: var(--shadow-lg);
+      }
+      .navbar-links.mobile-open a {
+        color: var(--color-text) !important;
+        padding: var(--space-sm) 0;
+      }
+      .navbar-links.mobile-open a:hover {
+        color: var(--color-primary) !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-logo">Shagun</a>
+      <div class="navbar-links">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#features">Features</a>
+        <a href="#showcase">Couples</a>
+        <a href="#contact">Contact</a>
+        <a href="create.html" class="btn btn-gold btn-sm">Create Invite</a>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+
+    <!-- Decorative mandalas -->
+    <div class="hero-mandala hero-mandala-1"></div>
+    <div class="hero-mandala hero-mandala-2"></div>
+    <div class="hero-mandala hero-mandala-3"></div>
+
+    <!-- Floating particles injected here by JS -->
+    <div id="hero-particles" style="position:absolute;inset:0;pointer-events:none;z-index:1;"></div>
+
+    <div class="hero-content">
+      <span class="hero-motif" aria-hidden="true">🪷</span>
+      <h1 class="hero-brand animate-fadeInUp">Shagun</h1>
+      <p class="hero-brand-hindi animate-fadeInUp" style="animation-delay:.15s">श गु न</p>
+      <p class="hero-tagline animate-fadeInUp" style="animation-delay:.3s">
+        "Don't just celebrate their beginning.<br>Be a part of their dreams."
+      </p>
+      <div class="hero-ctas animate-fadeInUp" style="animation-delay:.5s">
+        <a href="create.html" class="btn btn-gold btn-lg">✨ Create Your Wedding Page</a>
+        <a href="#how-it-works" class="btn btn-outline btn-lg">See How It Works</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>↓</span>
+      Scroll to explore
+    </div>
+  </section>
+
+  <hr class="hero-divider">
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section how-it-works" id="how-it-works">
+    <div class="container text-center">
+      <span class="section-label reveal">How It Works</span>
+      <h2 class="section-title reveal">Three Simple Steps to Meaningful Gifting</h2>
+      <div class="ornament reveal"><span class="ornament-icon">✦</span></div>
+      <p class="section-subtitle reveal">
+        Replace token gifts with real contributions toward the couple's future.
+      </p>
+
+      <div class="steps-grid stagger-children">
+        <div class="step-card">
+          <span class="step-number">01</span>
+          <div class="step-icon">📝</div>
+          <h3 class="step-title">Create</h3>
+          <p class="step-desc">Couple creates a beautiful wedding page with their story, dreams & goals — from honeymoons to homes.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-number">02</span>
+          <div class="step-icon">💌</div>
+          <h3 class="step-title">Share</h3>
+          <p class="step-desc">Share the gorgeous invitation link with family, friends, and colleagues. It's your wedding card, reimagined.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-number">03</span>
+          <div class="step-icon">🎁</div>
+          <h3 class="step-title">Fund</h3>
+          <p class="step-desc">Loved ones contribute to goals that truly matter — every rupee goes toward building their new life together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED COUPLE SHOWCASE ============ -->
+  <section class="section showcase" id="showcase">
+    <div class="showcase-mandala mandala-bg"></div>
+    <div class="container">
+      <div class="showcase-layout">
+        <!-- Left: Info -->
+        <div class="showcase-info reveal-left">
+          <span class="section-label">Featured Couple</span>
+          <h2 class="section-title">Pradyut & Jigyasa</h2>
+          <div class="ornament" style="justify-content:flex-start">
+            <span class="ornament-icon">💍</span>
+          </div>
+          <p>
+            College sweethearts who met at NIT Rourkela and have been inseparable for 5 years. 
+            Now they're building their future together — and their loved ones are making it happen, one Shagun at a time.
+          </p>
+          <p style="margin-bottom:var(--space-lg);">
+            Instead of spending ₹15‑20K on travel and a token gift, their guests are funding real dreams — 
+            from a European honeymoon to their first home.
+          </p>
+          <a href="wedding.html" class="btn btn-primary">View Their Page →</a>
+        </div>
+
+        <!-- Right: Wedding Card Preview -->
+        <div class="wedding-card-preview reveal-right">
+          <div class="wcp-header">
+            <div class="wcp-names">
+              Pradyut <span class="wcp-ampersand">&</span> Jigyasa
+            </div>
+            <div class="wcp-date">📅 January 18, 2027</div>
+            <div class="wcp-venue">📍 Puri, Odisha</div>
+          </div>
+          <div class="wcp-body">
+            <div class="wcp-goal">
+              <span class="wcp-goal-emoji">🌍</span>
+              <div class="wcp-goal-info">
+                <div class="wcp-goal-name">European Honeymoon</div>
+                <div class="wcp-goal-progress"><div class="wcp-goal-bar" data-width="53"></div></div>
+              </div>
+              <span class="wcp-goal-pct">53%</span>
+            </div>
+            <div class="wcp-goal">
+              <span class="wcp-goal-emoji">🏠</span>
+              <div class="wcp-goal-info">
+                <div class="wcp-goal-name">Dream Home Down Payment</div>
+                <div class="wcp-goal-progress"><div class="wcp-goal-bar" data-width="42"></div></div>
+              </div>
+              <span class="wcp-goal-pct">42%</span>
+            </div>
+            <div class="wcp-goal">
+              <span class="wcp-goal-emoji">🚗</span>
+              <div class="wcp-goal-info">
+                <div class="wcp-goal-name">First Car Together</div>
+                <div class="wcp-goal-progress"><div class="wcp-goal-bar" data-width="35"></div></div>
+              </div>
+              <span class="wcp-goal-pct">35%</span>
+            </div>
+            <div class="wcp-goal">
+              <span class="wcp-goal-emoji">📸</span>
+              <div class="wcp-goal-info">
+                <div class="wcp-goal-name">Professional Wedding Film</div>
+                <div class="wcp-goal-progress"><div class="wcp-goal-bar" data-width="81"></div></div>
+              </div>
+              <span class="wcp-goal-pct">81%</span>
+            </div>
+            <div class="wcp-goal">
+              <span class="wcp-goal-emoji">🍳</span>
+              <div class="wcp-goal-info">
+                <div class="wcp-goal-name">Kitchen Setup</div>
+                <div class="wcp-goal-progress"><div class="wcp-goal-bar" data-width="63"></div></div>
+              </div>
+              <span class="wcp-goal-pct">63%</span>
+            </div>
+          </div>
+          <div class="wcp-footer">
+            <a href="wedding.html" class="btn btn-primary btn-sm">💝 Contribute to Their Dreams</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY SHAGUN ============ -->
+  <section class="section why-section" id="features">
+    <div class="container text-center">
+      <span class="section-label reveal">Why Shagun?</span>
+      <h2 class="section-title reveal">Gifting That Actually Matters</h2>
+      <div class="ornament reveal"><span class="ornament-icon">✦</span></div>
+      <p class="section-subtitle reveal">Every Shagun tells a story. Every contribution builds a future.</p>
+
+      <div class="features-grid stagger-children">
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <div>
+            <h3 class="feature-title">No More Token Gifts</h3>
+            <p class="feature-desc">Skip the duplicate dinner sets and cash envelopes. Every rupee goes toward real dreams — a home, a honeymoon, or their first car.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💌</div>
+          <div>
+            <h3 class="feature-title">Beautiful Wedding Invites, Built-in</h3>
+            <p class="feature-desc">Your Shagun page doubles as a stunning digital wedding invitation — elegant enough to share with the whole family.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <div>
+            <h3 class="feature-title">UPI & All Payment Modes</h3>
+            <p class="feature-desc">Google Pay, PhonePe, Paytm, UPI, cards, net banking — your guests contribute however they're comfortable.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <div>
+            <h3 class="feature-title">100% Transparent</h3>
+            <p class="feature-desc">Couples see every contribution in real-time. Contributors see exactly where their shagun goes. Full transparency, full trust.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS / SOCIAL PROOF ============ -->
+  <section class="section stats-section" id="stats">
+    <div class="container">
+      <div class="stats-grid stagger-children">
+        <div class="stat-item">
+          <div class="stat-value" data-target="25000000" data-prefix="₹" data-suffix=" Cr+">₹0</div>
+          <div class="stat-label">Dreams Funded</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" data-target="1200" data-suffix="+">0</div>
+          <div class="stat-label">Happy Couples</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" data-target="15000" data-suffix="+">0</div>
+          <div class="stat-label">Loving Contributors</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" data-target="98" data-suffix="%">0</div>
+          <div class="stat-label">Satisfaction Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container text-center">
+      <span class="section-label reveal">Love Letters</span>
+      <h2 class="section-title reveal">What Our Community Says</h2>
+      <div class="ornament reveal"><span class="ornament-icon">❤</span></div>
+
+      <div class="testimonial-grid stagger-children">
+        <div class="testimonial-card">
+          <span class="testimonial-quote-mark">"</span>
+          <p class="testimonial-text">We were overwhelmed. Instead of 20 mixer-grinders, our friends funded our Bali honeymoon. It was the best wedding gift we could've asked for!</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">👩‍❤️‍👨</div>
+            <div>
+              <div class="testimonial-name">Riya & Arjun Mehta</div>
+              <div class="testimonial-role">Married Dec 2026, Jaipur</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <span class="testimonial-quote-mark">"</span>
+          <p class="testimonial-text">I live in the US and couldn't attend my cousin's wedding. With Shagun, I contributed ₹25,000 toward their home. Felt like I was truly there for them.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">🧑</div>
+            <div>
+              <div class="testimonial-name">Karan Deshmukh</div>
+              <div class="testimonial-role">Contributor, San Francisco</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <span class="testimonial-quote-mark">"</span>
+          <p class="testimonial-text">The page was so beautiful, our relatives thought it was designed by a studio. And the best part — ₹4.5 lakhs funded in just 3 weeks! 🙏</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">👩</div>
+            <div>
+              <div class="testimonial-name">Ananya Krishnan</div>
+              <div class="testimonial-role">Bride, Chennai</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="section final-cta" id="contact">
+    <div class="container">
+      <div class="final-cta-content">
+        <span class="section-label reveal">Start Your Journey</span>
+        <h2 class="section-title reveal" style="font-size:clamp(1.8rem,4.5vw,3rem)">Your Wedding. Their Love.<br>Real Dreams.</h2>
+        <div class="ornament reveal" style="margin-bottom:var(--space-lg);">
+          <span class="ornament-icon" style="color:var(--color-gold-light)">🪷</span>
+        </div>
+        <p class="reveal">
+          Create your free Shagun page in minutes.<br>
+          Share it with your world. Watch dreams come alive.
+        </p>
+        <div class="reveal" style="animation-delay:.2s">
+          <a href="create.html" class="btn btn-gold btn-lg">🌟 Get Started Free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="footer-logo">Shagun</div>
+      <p class="footer-tagline">"Don't just celebrate their beginning. Be a part of their dreams."</p>
+
+      <div class="footer-links" style="justify-content:center">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#features">Features</a>
+        <a href="#showcase">Couples</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Help & Support</a>
+      </div>
+
+      <div class="footer-bottom" style="justify-content:center">
+        <span>Made with ❤️ in India &nbsp;|&nbsp; © 2027 Shagun (शगुन). All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPTS ============ -->
+  <script src="js/utils.js"></script>
+  <script>
+    // ---- Floating particles in hero ----
+    document.addEventListener('DOMContentLoaded', function () {
+      const heroParticles = document.getElementById('hero-particles');
+      if (heroParticles) {
+        createFloatingElements(heroParticles, 20);
+      }
+
+      // ---- Animate wedding-card progress bars on reveal ----
+      const cardObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            const bars = entry.target.querySelectorAll('.wcp-goal-bar');
+            bars.forEach(function (bar) {
+              const w = bar.getAttribute('data-width');
+              setTimeout(function () { bar.style.width = w + '%'; }, 400);
+            });
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      var cardPreview = document.querySelector('.wedding-card-preview');
+      if (cardPreview) {
+        // start at 0
+        cardPreview.querySelectorAll('.wcp-goal-bar').forEach(function (bar) {
+          bar.style.width = '0%';
+        });
+        cardObserver.observe(cardPreview);
+      }
+
+      // ---- Counter animation for stats ----
+      var statsObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var statValues = entry.target.querySelectorAll('.stat-value');
+            statValues.forEach(function (el) {
+              var target = parseInt(el.getAttribute('data-target'), 10);
+              var prefix = el.getAttribute('data-prefix') || '';
+              var suffix = el.getAttribute('data-suffix') || '';
+
+              // For the ₹2.5 Cr stat, we display it specially
+              if (target === 25000000) {
+                animateCrores(el);
+              } else {
+                animateCounter(el, target, 2200, prefix, suffix);
+              }
+            });
+            statsObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      var statsGrid = document.querySelector('.stats-grid');
+      if (statsGrid) {
+        statsObserver.observe(statsGrid);
+      }
+    });
+
+    // Special animated counter for ₹2.5 Cr+
+    function animateCrores(element) {
+      var target = 2.5;
+      var duration = 2200;
+      var startTime = performance.now();
+
+      function update(currentTime) {
+        var elapsed = currentTime - startTime;
+        var progress = Math.min(elapsed / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = (eased * target).toFixed(1);
+        element.textContent = '₹' + current + ' Cr+';
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        }
+      }
+      requestAnimationFrame(update);
+    }
+  </script>
+</body>
+</html>
