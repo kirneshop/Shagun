@@ -85,7 +85,7 @@ Your clean URLs are automatically handled by `netlify.toml` and `_redirects`:
 ---
 
 ## 💑 Pre-configured Couple Data
-* **Couple:** Pradyut Panda & Jigyasa Sharma
+* **Couple:** Pradyut & Jigyasa
 * **Date:** January 18, 2027
 * **Venue:** Mayfair Heritage Beach Resort, Puri, Odisha
 * **Active Goals:**

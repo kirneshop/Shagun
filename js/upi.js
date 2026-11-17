@@ -4,7 +4,7 @@
 
 // --- UPI QR & Deep Link Generator ---
 const UpiEngine = {
-  defaultVpa: 'pradyut.panda@oksbi',
+  defaultVpa: 'pradyut.jigyasa@oksbi',
   payeeName: 'Pradyut and Jigyasa Wedding Shagun',
 
   buildUpiUri(amount, note = 'Wedding Shagun Blessing', vpa = null) {

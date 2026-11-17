@@ -3,15 +3,15 @@
    Persists across all pages (Landing, Wedding, Dashboard, Create)
    ============================================================ */
 
-const SHAGUN_STORAGE_KEY = 'shagun_app_data_v1';
+const SHAGUN_STORAGE_KEY = 'shagun_app_data_v2';
 
 // Default Seed Data: Pradyut & Jigyasa Wedding in Puri, Odisha
 const DEFAULT_WEDDING_DATA = {
   couples: {
     'pradyut-jigyasa': {
       id: 'pradyut-jigyasa',
-      groom: 'Pradyut Panda',
-      bride: 'Jigyasa Sharma',
+      groom: 'Pradyut',
+      bride: 'Jigyasa',
       slug: 'pradyut-jigyasa',
       weddingDate: '2027-01-18',
       weddingTime: '16:00',
@@ -25,7 +25,7 @@ const DEFAULT_WEDDING_DATA = {
       tagline: 'Don\'t just celebrate our beginning. Be a part of our dreams.',
       story: 'We met at NIT Rourkela in 2021 over a cup of tapri chai during the college tech festival. 5 years of love, growth, cross-city flights, and countless beach walks later, we are taking our next big step under the holy sky of Puri.',
       upi: {
-        id: 'pradyut.panda@oksbi',
+        id: 'pradyut.jigyasa@oksbi',
         name: 'Pradyut and Jigyasa Wedding Fund'
       },
       goals: [

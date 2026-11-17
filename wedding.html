@@ -1014,7 +1014,7 @@
           </span>
           <img id="upiQrCodeImg" class="qr-img" src="" alt="UPI QR Code">
           <span style="font-size:0.78rem; color:var(--color-text-muted); display:block;">
-            UPI ID: <strong id="vpaDisplay">pradyut.panda@oksbi</strong>
+            UPI ID: <strong id="vpaDisplay">pradyut.jigyasa@oksbi</strong>
           </span>
 
           <div class="upi-app-buttons">
@@ -1107,7 +1107,7 @@
       </div>
 
       <div class="footer-bottom">
-        <span>Celebration of Pradyut Panda & Jigyasa Sharma • Puri, Odisha 2027</span>
+        <span>Celebration of Pradyut & Jigyasa • Puri, Odisha 2027</span>
         <span>Built with ❤️ on Shagun — Hosted on Netlify</span>
       </div>
     </div>
@@ -1228,7 +1228,7 @@
     // --- Dynamic QR Code Generator ---
     function updateQrCode() {
       const amount = parseInt(document.getElementById('customAmountInput').value, 10) || 1101;
-      const vpa = currentWedding?.upi?.id || 'pradyut.panda@oksbi';
+      const vpa = currentWedding?.upi?.id || 'pradyut.jigyasa@oksbi';
       const qrUrl = window.UpiEngine.getQrCodeUrl(amount, 'Wedding Shagun', vpa);
       document.getElementById('upiQrCodeImg').src = qrUrl;
       document.getElementById('vpaDisplay').textContent = vpa;
@@ -1236,7 +1236,7 @@
 
     function payViaApp(appName) {
       const amount = parseInt(document.getElementById('customAmountInput').value, 10) || 1101;
-      const vpa = currentWedding?.upi?.id || 'pradyut.panda@oksbi';
+      const vpa = currentWedding?.upi?.id || 'pradyut.jigyasa@oksbi';
       window.UpiEngine.openApp(appName, amount, 'Wedding Shagun', vpa);
     }
 
